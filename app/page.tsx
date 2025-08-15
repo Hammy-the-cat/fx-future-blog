@@ -59,20 +59,6 @@ export default async function Home() {
         </header>
 
         <main>
-          <div style={{ 
-            background: 'rgba(0, 0, 0, 0.8)', 
-            border: '1px solid #00ff00', 
-            borderRadius: '10px', 
-            padding: '20px', 
-            marginBottom: '30px',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ fontFamily: 'Orbitron, monospace', color: '#00ff00', marginBottom: '15px' }}>
-              ✅ NEXT.JS QUANTUM SYSTEM ONLINE
-            </h3>
-            <p style={{ color: '#e0e0e0' }}>近未来デザインシステム稼働中 - Sanity CMS連携準備完了</p>
-          </div>
-          
           {validPosts.map((post) => {
             // 記事の抜粋を生成
             const excerpt = post.body && post.body.length > 0 ? 
