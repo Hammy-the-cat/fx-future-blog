@@ -48,8 +48,12 @@ export default async function Home() {
   }
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', minHeight: '100vh' }}>
-      <header className="futuristic-header">
+    <>
+      <div className="cyber-bg"></div>
+      <div className="grid-overlay"></div>
+      
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', position: 'relative', zIndex: 1 }}>
+        <header className="futuristic-header">
         <h1 className="futuristic-title">FX FUTURE ARCHIVES</h1>
         <a 
           href="http://localhost:3333" 
@@ -228,6 +232,7 @@ export default async function Home() {
           )
         })}
       </main>
-    </div>
+      </div>
+    </>
   )
 }

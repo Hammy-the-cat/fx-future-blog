@@ -16,9 +16,51 @@ body {
   color: #e0e0e0;
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* シンプルなヘッダー（アニメーション無し） */
+/* 近未来的なアニメーション背景 */
+.cyber-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  background: 
+    radial-gradient(circle at 20% 20%, #00ffff 0%, transparent 70%),
+    radial-gradient(circle at 80% 80%, #ff00ff 0%, transparent 70%),
+    radial-gradient(circle at 60% 40%, #00ff00 0%, transparent 70%);
+  animation: cyberPulse 8s ease-in-out infinite;
+}
+
+@keyframes cyberPulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+
+/* FXチャート風背景 */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridScroll 20s linear infinite;
+}
+
+@keyframes gridScroll {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* ネオンヘッダー */
 .futuristic-header {
   background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%);
   border: 2px solid #00ffff;
@@ -26,7 +68,27 @@ body {
   padding: 40px;
   margin-bottom: 40px;
   text-align: center;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.3),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .futuristic-title {
@@ -34,16 +96,25 @@ body {
   font-size: 3.5rem;
   font-weight: 900;
   background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00);
+  background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* 記事カード */
 .post-card {
   background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(15, 20, 35, 0.95) 100%);
-  border: 2px solid #00ffff;
+  border: 2px solid transparent;
   border-radius: 15px;
   padding: 0;
   transition: all 0.4s ease;
@@ -51,6 +122,28 @@ body {
   overflow: hidden;
   backdrop-filter: blur(15px);
   margin-bottom: 30px;
+}
+
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #0066ff, #00ffff);
+  background-size: 400% 400%;
+  animation: borderGlow 4s ease-in-out infinite;
+  opacity: 0.8;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: exclude;
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .post-card:hover {
