@@ -1,20 +1,30 @@
-export default function Home() {
-  const dummyPosts = [
-    {
-      _id: '1',
-      title: '《ADVANCED》エントリー前5つの視点',
-      author: { name: 'Elice-FX01 [TIME TRAVELER]' },
-      publishedAt: '2025-08-14',
-      excerpt: 'プロトレーダーが実践するエントリー前の最終チェックリスト。勝率を劇的に向上させる5つの視点を解説。'
+import { client } from '@/lib/sanity'
+
+export default async function Home() {
+  // Sanityから記事を取得
+  const posts = await client.fetch(`*[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    author->{
+      name,
+      image
     },
-    {
-      _id: '2', 
-      title: '《FUTURE REPORT》エリオット波動の実践応用',
-      author: { name: 'Elice-FX01 [TIME TRAVELER]' },
-      publishedAt: '2025-08-14',
-      excerpt: 'エリオット波動理論の実践的な応用方法について詳しく解説。多くのトレーダーが見逃してしまう第3波を的確に捉える具体的なテクニックを紹介。'
+    mainImage,
+    categories[]->{
+      title
+    },
+    publishedAt,
+    body[0...2]{
+      ...,
+      children[]{
+        text
+      }
     }
-  ]
+  }`)
+
+  // 有効な記事のみをフィルタリング
+  const validPosts = posts.filter(post => post.slug?.current)
 
   return (
     <>
@@ -66,7 +76,17 @@ export default function Home() {
             <p style={{ color: '#e0e0e0' }}>近未来デザインシステム稼働中 - Sanity CMS連携準備完了</p>
           </div>
           
-          {dummyPosts.map((post) => (
+          {validPosts.map((post) => {
+            // 記事の抜粋を生成
+            const excerpt = post.body && post.body.length > 0 ? 
+              post.body.map(block => 
+                block.children ? 
+                block.children.map(child => child.text || '').join('') : 
+                ''
+              ).join(' ').substring(0, 200) + '...' : 
+              '本文なし';
+
+            return (
             <article key={post._id} className="post-card">
               <div className="post-content">
                 <h2 className="post-title">{post.title}</h2>
@@ -95,14 +115,14 @@ export default function Home() {
                       fontSize: '1.1rem',
                       textShadow: '0 0 8px rgba(0, 255, 0, 0.8)'
                     }}>
-                      {post.author.name}
+                      {post.author?.name || 'Unknown Author'}
                     </div>
                     <div style={{ 
                       color: '#cccccc', 
                       fontSize: '0.9rem', 
                       fontFamily: 'Orbitron, monospace' 
                     }}>
-                      TRANSMITTED: {new Date(post.publishedAt).toLocaleDateString('ja-JP')}
+                      TRANSMITTED: {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('ja-JP') : '日付未設定'}
                     </div>
                   </div>
                 </div>
@@ -113,7 +133,7 @@ export default function Home() {
                   lineHeight: '1.7',
                   textShadow: '0 1px 3px rgba(0, 0, 0, 0.8)'
                 }}>
-                  {post.excerpt}
+                  {excerpt}
                 </div>
                 
                 <a 
@@ -135,7 +155,8 @@ export default function Home() {
                 </a>
               </div>
             </article>
-          ))}
+            )
+          })}
         </main>
       </div>
     </>
