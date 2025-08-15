@@ -34,9 +34,6 @@ export default async function Home() {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', position: 'relative', zIndex: 1 }}>
         <header className="futuristic-header">
           <h1 className="futuristic-title">FX FUTURE ARCHIVES</h1>
-          <p style={{ fontFamily: 'Orbitron, monospace', fontSize: '1.2rem', color: '#00ffff', marginTop: '15px', opacity: 0.9, position: 'relative', zIndex: 1 }}>
-            未来から届くFX投資レポート
-          </p>
           <a 
             href="http://localhost:3333" 
             target="_blank" 
