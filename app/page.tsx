@@ -26,6 +26,13 @@ export default async function Home() {
   // 有効な記事のみをフィルタリング
   const validPosts = posts.filter(post => post.slug?.current)
 
+  // カテゴリーを取得
+  const categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
+    _id,
+    title,
+    description
+  }`)
+
   return (
     <>
       <div className="cyber-bg"></div>
@@ -57,6 +64,64 @@ export default async function Home() {
             🚀 Sanity Studio ACCESS
           </a>
         </header>
+
+        {/* カテゴリー表示 */}
+        {categories && categories.length > 0 && (
+          <nav style={{
+            background: 'rgba(0, 0, 0, 0.8)',
+            border: '1px solid #ff00ff',
+            borderRadius: '15px',
+            padding: '20px',
+            marginBottom: '30px',
+            textAlign: 'center'
+          }}>
+            <h3 style={{
+              fontFamily: 'Orbitron, monospace',
+              color: '#ff00ff',
+              marginBottom: '15px',
+              fontSize: '1.2rem',
+              textShadow: '0 0 10px rgba(255, 0, 255, 0.8)'
+            }}>
+              📂 CATEGORIES
+            </h3>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '15px',
+              justifyContent: 'center'
+            }}>
+              {categories.map((category) => (
+                <span
+                  key={category._id}
+                  style={{
+                    background: 'linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2))',
+                    border: '1px solid #ff00ff',
+                    borderRadius: '20px',
+                    padding: '8px 16px',
+                    color: '#ffffff',
+                    fontFamily: 'Orbitron, monospace',
+                    fontSize: '0.9rem',
+                    fontWeight: '500',
+                    textShadow: '0 0 5px rgba(255, 0, 255, 0.5)',
+                    boxShadow: '0 0 10px rgba(255, 0, 255, 0.3)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.background = 'linear-gradient(45deg, rgba(255, 0, 255, 0.4), rgba(0, 255, 255, 0.4))';
+                    e.target.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.background = 'linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2))';
+                    e.target.style.transform = 'translateY(0)';
+                  }}
+                >
+                  {category.title}
+                </span>
+              ))}
+            </div>
+          </nav>
+        )}
 
         <main>
           {validPosts.map((post) => {
