@@ -26,14 +26,17 @@ export default async function Home() {
   // 有効な記事のみをフィルタリング
   const validPosts = posts.filter(post => post.slug?.current)
 
-  // カテゴリーを取得
+  // カテゴリーを取得（デバッグページと同じクエリを使用）
   let categories = []
   try {
     categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
       _id,
       title,
-      description
+      description,
+      _createdAt,
+      _updatedAt
     }`)
+    console.log('Main page - Categories fetched:', categories.length, categories)
   } catch (error) {
     console.error('Categories fetch error:', error)
     categories = []
