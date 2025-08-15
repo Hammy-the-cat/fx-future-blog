@@ -1,4 +1,5 @@
 import { client } from '@/lib/sanity'
+import Link from 'next/link'
 
 export default async function DebugPage() {
   try {
@@ -41,9 +42,9 @@ export default async function DebugPage() {
         </pre>
         
         <div className="mt-4">
-          <a href="/" className="text-blue-600 hover:underline">
+          <Link href="/" className="text-blue-600 hover:underline">
             ← ホームに戻る
-          </a>
+          </Link>
         </div>
       </div>
     )

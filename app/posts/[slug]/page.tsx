@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation'
 // PortableTextの表示コンポーネント
 const portableTextComponents = {
   types: {
-    image: ({value}: any) => (
+    image: ({value}: {alt?: string; asset: {_ref: string}}) => (
       <div className="my-8">
         <Image
           src={urlFor(value).width(800).url()}
@@ -20,18 +20,18 @@ const portableTextComponents = {
     ),
   },
   marks: {
-    link: ({children, value}: any) => (
+    link: ({children, value}: {children: React.ReactNode; href: string}) => (
       <a href={value.href} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
         {children}
       </a>
     ),
   },
   block: {
-    h1: ({children}: any) => <h1 className="text-3xl font-bold mb-4 mt-8">{children}</h1>,
-    h2: ({children}: any) => <h2 className="text-2xl font-bold mb-3 mt-6">{children}</h2>,
-    h3: ({children}: any) => <h3 className="text-xl font-bold mb-2 mt-4">{children}</h3>,
-    normal: ({children}: any) => <p className="mb-4 leading-relaxed">{children}</p>,
-    blockquote: ({children}: any) => (
+    h1: ({children}: {children: React.ReactNode}) => <h1 className="text-3xl font-bold mb-4 mt-8">{children}</h1>,
+    h2: ({children}: {children: React.ReactNode}) => <h2 className="text-2xl font-bold mb-3 mt-6">{children}</h2>,
+    h3: ({children}: {children: React.ReactNode}) => <h3 className="text-xl font-bold mb-2 mt-4">{children}</h3>,
+    normal: ({children}: {children: React.ReactNode}) => <p className="mb-4 leading-relaxed">{children}</p>,
+    blockquote: ({children}: {children: React.ReactNode}) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600">
         {children}
       </blockquote>
