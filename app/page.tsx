@@ -66,7 +66,7 @@ export default async function Home() {
         </header>
 
         {/* カテゴリー表示 */}
-        {categories && categories.length > 0 && (
+        {categories && categories.length > 0 ? (
           <nav style={{
             background: 'rgba(0, 0, 0, 0.8)',
             border: '1px solid #ff00ff',
@@ -120,6 +120,28 @@ export default async function Home() {
                 </span>
               ))}
             </div>
+          </nav>
+        ) : (
+          <nav style={{
+            background: 'rgba(0, 0, 0, 0.8)',
+            border: '1px solid #ffff00',
+            borderRadius: '15px',
+            padding: '20px',
+            marginBottom: '30px',
+            textAlign: 'center'
+          }}>
+            <h3 style={{
+              fontFamily: 'Orbitron, monospace',
+              color: '#ffff00',
+              marginBottom: '10px',
+              fontSize: '1rem',
+              textShadow: '0 0 10px rgba(255, 255, 0, 0.8)'
+            }}>
+              📂 カテゴリーが見つかりません
+            </h3>
+            <p style={{ color: '#e0e0e0', fontSize: '0.9rem' }}>
+              Sanity Studioでカテゴリーを作成してください
+            </p>
           </nav>
         )}
 
