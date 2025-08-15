@@ -22,8 +22,29 @@ export default async function Home() {
   }
 
   return (
-    <div style={{ padding: '20px', color: 'white', background: 'black', minHeight: '100vh' }}>
-      <h1>FX FUTURE ARCHIVES</h1>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', minHeight: '100vh' }}>
+      <header className="futuristic-header">
+        <h1 className="futuristic-title">FX FUTURE ARCHIVES</h1>
+        <a 
+          href="http://localhost:3333" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ 
+            display: 'inline-block', 
+            background: 'linear-gradient(45deg, #00ffff, #0080ff)',
+            color: '#000', 
+            padding: '12px 25px', 
+            textDecoration: 'none', 
+            borderRadius: '25px',
+            fontFamily: 'Orbitron, monospace',
+            fontWeight: '600',
+            marginTop: '20px',
+            boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)'
+          }}
+        >
+          🚀 Sanity Studio ACCESS
+        </a>
+      </header>
       
       {error ? (
         <div style={{ background: 'red', padding: '10px', margin: '20px 0' }}>
