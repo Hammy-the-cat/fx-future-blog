@@ -1,4 +1,5 @@
 import { client } from '@/lib/sanity'
+import { createClient } from '@sanity/client'
 
 export default async function Home() {
   // Sanityから記事を取得
@@ -26,17 +27,25 @@ export default async function Home() {
   // 有効な記事のみをフィルタリング
   const validPosts = posts.filter(post => post.slug?.current)
 
-  // カテゴリーを取得（デバッグページと同じクエリを使用）
+  // カテゴリー専用のクライアント（CDNなし）を作成
+  const realtimeClient = createClient({
+    projectId: 'sfth73fb',
+    dataset: 'production',
+    useCdn: false, // リアルタイムデータのためCDNを無効化
+    apiVersion: '2021-10-21',
+  })
+
+  // カテゴリーを取得（リアルタイムクライアントを使用）
   let categories = []
   try {
-    categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
+    categories = await realtimeClient.fetch(`*[_type == "category"] | order(_createdAt desc) {
       _id,
       title,
       description,
       _createdAt,
       _updatedAt
     }`)
-    console.log('Main page - Categories fetched:', categories.length, categories)
+    console.log('Main page - Categories fetched with realtime client:', categories.length, categories)
   } catch (error) {
     console.error('Categories fetch error:', error)
     categories = []
