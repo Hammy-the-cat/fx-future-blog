@@ -26,12 +26,18 @@ export default async function Home() {
   // 有効な記事のみをフィルタリング
   const validPosts = posts.filter(post => post.slug?.current)
 
-  // カテゴリーを取得
-  const categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
-    _id,
-    title,
-    description
-  }`)
+  // カテゴリーを取得（エラーハンドリング付き）
+  let categories = []
+  try {
+    categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
+      _id,
+      title,
+      description
+    }`)
+  } catch (error) {
+    console.error('Categories fetch error:', error)
+    categories = []
+  }
 
   return (
     <>
@@ -142,8 +148,28 @@ export default async function Home() {
             <p style={{ color: '#e0e0e0', fontSize: '0.9rem' }}>
               Sanity Studioでカテゴリーを作成してください
             </p>
+            <p style={{ color: '#888', fontSize: '0.8rem', marginTop: '10px' }}>
+              Debug: categories = {JSON.stringify(categories)}
+            </p>
           </nav>
         )}
+
+        {/* 常にデバッグ情報を表示 */}
+        <div style={{
+          background: 'rgba(255, 0, 0, 0.1)',
+          border: '1px solid #ff0000',
+          borderRadius: '10px',
+          padding: '15px',
+          marginBottom: '20px',
+          fontSize: '0.8rem',
+          color: '#ff6666'
+        }}>
+          <strong>DEBUG INFO:</strong><br/>
+          Categories type: {typeof categories}<br/>
+          Categories length: {categories ? categories.length : 'undefined'}<br/>
+          Categories array: {Array.isArray(categories) ? 'Yes' : 'No'}<br/>
+          Raw categories: {JSON.stringify(categories)}
+        </div>
 
         <main>
           {validPosts.map((post) => {
