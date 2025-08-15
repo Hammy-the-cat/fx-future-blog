@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Site - Live Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-title {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .post-content {
+            color: #444;
+            font-size: 16px;
+        }
+        .post-content h1, .post-content h2, .post-content h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .post-content ul, .post-content ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        .post-content li {
+            margin: 5px 0;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .error {
+            color: #e74c3c;
+            background: #ffeaea;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .no-posts {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .sanity-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .sanity-link:hover {
+            background: #2980b9;
+        }
+        .refresh-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .refresh-btn:hover {
+            background: #219a52;
+        }
+        .category {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Blog Site - ライブコンテンツ</h1>
+        <p>Sanityから最新の投稿を取得して表示します</p>
+        <a href="http://localhost:3333" target="_blank" class="sanity-link">Sanity Studioを開く</a>
+        <button onclick="fetchPosts()" class="refresh-btn">🔄 最新の投稿を取得</button>
+    </div>
+
+    <div id="posts-container">
+        <div class="loading">投稿を読み込み中...</div>
+    </div>
+
+    <script>
+        // Sanity Client設定
+        const projectId = 'sfth73fb';
+        const dataset = 'production';
+        const apiVersion = '2021-10-21';
+        
+        // GROQ クエリ - より詳細な情報を取得
+        const query = `*[_type == "post"] | order(publishedAt desc) {
+            _id,
+            title,
+            slug,
+            author->{
+                name,
+                image
+            },
+            mainImage,
+            categories[]->{
+                title
+            },
+            publishedAt,
+            body
+        }`;
+
+        // データ取得関数
+        async function fetchPosts() {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '<div class="loading">投稿を読み込み中...</div>';
+            
+            try {
+                const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`;
+                console.log('Fetching from:', url);
+                
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Fetched data:', data);
+                
+                displayPosts(data.result);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+                displayError(error.message);
+            }
+        }
+
+        // Portable Textを簡単なHTMLに変換
+        function renderPortableText(body) {
+            if (!body || !Array.isArray(body)) return '';
+            
+            return body.map(block => {
+                if (!block || !block._type) return '';
+                
+                switch (block._type) {
+                    case 'block':
+                        const style = block.style || 'normal';
+                        const children = block.children || [];
+                        const text = children.map(child => child.text || '').join('');
+                        
+                        switch (style) {
+                            case 'h1': return `<h1>${text}</h1>`;
+                            case 'h2': return `<h2>${text}</h2>`;
+                            case 'h3': return `<h3>${text}</h3>`;
+                            case 'h4': return `<h4>${text}</h4>`;
+                            case 'blockquote': return `<blockquote>${text}</blockquote>`;
+                            default: return `<p>${text}</p>`;
+                        }
+                    default:
+                        return '';
+                }
+            }).join('');
+        }
+
+        // 投稿表示関数
+        function displayPosts(posts) {
+            const container = document.getElementById('posts-container');
+            
+            if (!posts || posts.length === 0) {
+                container.innerHTML = `
+                    <div class="no-posts">
+                        <h3>まだ投稿がありません</h3>
+                        <p>Sanity Studioで投稿を作成してからページを再読み込みしてください。</p>
+                        <p>作成した投稿が表示されない場合は、以下を確認してください：</p>
+                        <ul>
+                            <li>投稿にタイトルが設定されているか</li>
+                            <li>投稿が保存されているか</li>
+                            <li>Slugが設定されているか（推奨）</li>
+                        </ul>
+                    </div>
+                `;
+                return;
+            }
+
+            const postsHtml = posts.map(post => {
+                const publishedDate = post.publishedAt ? 
+                    new Date(post.publishedAt).toLocaleDateString('ja-JP', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    }) : 
+                    '日付未設定';
+                
+                const categories = post.categories ? 
+                    post.categories.map(cat => `<span class="category">${cat.title}</span>`).join('') : 
+                    '';
+                
+                const content = renderPortableText(post.body);
+
+                return `
+                    <article class="post">
+                        <h2 class="post-title">${post.title || 'タイトルなし'}</h2>
+                        <div class="post-meta">
+                            <span>📝 著者: ${post.author?.name || '不明'}</span>
+                            <span>📅 公開日: ${publishedDate}</span>
+                            ${post.slug?.current ? `<span>🔗 Slug: ${post.slug.current}</span>` : ''}
+                        </div>
+                        ${categories ? `<div style="margin-bottom: 15px;">${categories}</div>` : ''}
+                        <div class="post-content">
+                            ${content || '<p>本文が設定されていません。</p>'}
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            container.innerHTML = postsHtml;
+        }
+
+        // エラー表示関数
+        function displayError(errorMessage) {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = `
+                <div class="error">
+                    <h3>❌ エラーが発生しました</h3>
+                    <p><strong>エラー詳細:</strong> ${errorMessage}</p>
+                    <h4>考えられる原因:</h4>
+                    <ul>
+                        <li>Sanity Studioが起動していない</li>
+                        <li>プロジェクトIDが間違っている</li>
+                        <li>ネットワーク接続の問題</li>
+                        <li>CORS設定の問題</li>
+                    </ul>
+                    <p>
+                        <a href="http://localhost:3333" target="_blank" class="sanity-link">Sanity Studioで投稿を確認</a>
+                        <button onclick="fetchPosts()" class="refresh-btn">再試行</button>
+                    </p>
+                </div>
+            `;
+        }
+
+        // ページ読み込み時に実行
+        document.addEventListener('DOMContentLoaded', fetchPosts);
+        
+        // 30秒ごとに自動更新（オプション）
+        // setInterval(fetchPosts, 30000);
+    </script>
+</body>
+</html>
