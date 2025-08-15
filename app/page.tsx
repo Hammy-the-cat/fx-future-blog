@@ -1,5 +1,4 @@
 import { client } from '@/lib/sanity'
-import { createClient } from '@sanity/client'
 
 export default async function Home() {
   // Sanityから記事を取得
@@ -27,27 +26,36 @@ export default async function Home() {
   // 有効な記事のみをフィルタリング
   const validPosts = posts.filter(post => post.slug?.current)
 
-  // カテゴリー専用のクライアント（CDNなし）を作成
-  const realtimeClient = createClient({
-    projectId: 'sfth73fb',
-    dataset: 'production',
-    useCdn: false, // リアルタイムデータのためCDNを無効化
-    apiVersion: '2021-10-21',
-  })
-
-  // カテゴリーを取得（リアルタイムクライアントを使用）
+  // カテゴリーを取得（デバッグページと全く同じ方法）
   let categories = []
+  let allDocuments = []
+  let error = null
+
   try {
-    categories = await realtimeClient.fetch(`*[_type == "category"] | order(_createdAt desc) {
+    // 複数のクエリで確認（デバッグページと同じ）
+    categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
       _id,
       title,
       description,
       _createdAt,
       _updatedAt
     }`)
-    console.log('Main page - Categories fetched with realtime client:', categories.length, categories)
-  } catch (error) {
-    console.error('Categories fetch error:', error)
+
+    // すべてのドキュメント取得（デバッグページと同じ）
+    allDocuments = await client.fetch(`*[_type == "category"] {
+      _id,
+      _type,
+      title,
+      _createdAt,
+      _updatedAt
+    }`)
+    
+    console.log('Main page - Categories:', categories)
+    console.log('Main page - All category documents:', allDocuments)
+    
+  } catch (err) {
+    error = err
+    console.error('Main page - Categories fetch error:', err)
     categories = []
   }
 
@@ -166,7 +174,7 @@ export default async function Home() {
           </nav>
         )}
 
-        {/* 常にデバッグ情報を表示 */}
+        {/* 強化されたデバッグ情報を表示 */}
         <div style={{
           background: 'rgba(255, 0, 0, 0.1)',
           border: '1px solid #ff0000',
@@ -176,11 +184,22 @@ export default async function Home() {
           fontSize: '0.8rem',
           color: '#ff6666'
         }}>
-          <strong>DEBUG INFO:</strong><br/>
+          <strong>ENHANCED DEBUG INFO:</strong><br/>
+          {error ? (
+            <>
+              <span style={{color: '#ff0000'}}>❌ Error occurred: {error instanceof Error ? error.message : String(error)}</span><br/>
+            </>
+          ) : (
+            <>
+              <span style={{color: '#00ff00'}}>✅ No errors</span><br/>
+            </>
+          )}
           Categories type: {typeof categories}<br/>
           Categories length: {categories ? categories.length : 'undefined'}<br/>
           Categories array: {Array.isArray(categories) ? 'Yes' : 'No'}<br/>
-          Raw categories: {JSON.stringify(categories)}
+          All documents length: {allDocuments ? allDocuments.length : 'undefined'}<br/>
+          Raw categories: {JSON.stringify(categories)}<br/>
+          Raw allDocuments: {JSON.stringify(allDocuments)}
         </div>
 
         <main>
