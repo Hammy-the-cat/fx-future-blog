@@ -130,6 +130,49 @@ export default function Home() {
           }}>
             {categories.map((category) => {
               const isSelected = selectedCategory === category.title;
+              
+              // カテゴリー別カラーパレット（記事カードと同じ）
+              const getCategoryColors = (categoryTitle) => {
+                const title = categoryTitle.toLowerCase();
+                
+                switch (title) {
+                  case 'crypto':
+                    return {
+                      border: '#ffd700',
+                      glow: 'rgba(255, 215, 0, 0.3)',
+                      selectedGlow: 'rgba(255, 215, 0, 0.6)',
+                      gradient: 'linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.4))',
+                      selectedGradient: 'linear-gradient(45deg, rgba(255, 215, 0, 0.6), rgba(255, 215, 0, 0.8))'
+                    };
+                  case 'fx skills':
+                    return {
+                      border: '#00ff88',
+                      glow: 'rgba(0, 255, 136, 0.3)',
+                      selectedGlow: 'rgba(0, 255, 136, 0.6)',
+                      gradient: 'linear-gradient(45deg, rgba(0, 255, 136, 0.2), rgba(0, 255, 136, 0.4))',
+                      selectedGradient: 'linear-gradient(45deg, rgba(0, 255, 136, 0.6), rgba(0, 255, 136, 0.8))'
+                    };
+                  case 'economic news':
+                    return {
+                      border: '#ff4757',
+                      glow: 'rgba(255, 71, 87, 0.3)',
+                      selectedGlow: 'rgba(255, 71, 87, 0.6)',
+                      gradient: 'linear-gradient(45deg, rgba(255, 71, 87, 0.2), rgba(255, 71, 87, 0.4))',
+                      selectedGradient: 'linear-gradient(45deg, rgba(255, 71, 87, 0.6), rgba(255, 71, 87, 0.8))'
+                    };
+                  default:
+                    return {
+                      border: '#ff00ff',
+                      glow: 'rgba(255, 0, 255, 0.3)',
+                      selectedGlow: 'rgba(255, 0, 255, 0.6)',
+                      gradient: 'linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(255, 0, 255, 0.4))',
+                      selectedGradient: 'linear-gradient(45deg, rgba(255, 0, 255, 0.6), rgba(255, 0, 255, 0.8))'
+                    };
+                }
+              };
+
+              const colors = getCategoryColors(category.title);
+
               return (
                 <span
                   key={category._id}
@@ -138,10 +181,8 @@ export default function Home() {
                     setSelectedCategory(category.title)
                   }}
                   style={{
-                    background: isSelected 
-                      ? 'linear-gradient(45deg, rgba(255, 0, 255, 0.6), rgba(0, 255, 255, 0.6))'
-                      : 'linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2))',
-                    border: isSelected ? '2px solid #ff00ff' : '1px solid #ff00ff',
+                    background: isSelected ? colors.selectedGradient : colors.gradient,
+                    border: isSelected ? `2px solid ${colors.border}` : `1px solid ${colors.border}`,
                     borderRadius: '20px',
                     padding: '8px 16px',
                     color: '#ffffff',
@@ -149,11 +190,11 @@ export default function Home() {
                     fontSize: '0.9rem',
                     fontWeight: isSelected ? '700' : '500',
                     textShadow: isSelected 
-                      ? '0 0 10px rgba(255, 0, 255, 1)'
-                      : '0 0 5px rgba(255, 0, 255, 0.5)',
+                      ? `0 0 10px ${colors.border}`
+                      : `0 0 5px ${colors.glow.replace('0.3', '0.8')}`,
                     boxShadow: isSelected 
-                      ? '0 0 20px rgba(255, 0, 255, 0.6)'
-                      : '0 0 10px rgba(255, 0, 255, 0.3)',
+                      ? `0 0 20px ${colors.selectedGlow}`
+                      : `0 0 10px ${colors.glow}`,
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     transform: isSelected ? 'scale(1.05)' : 'scale(1)'
