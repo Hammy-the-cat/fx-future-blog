@@ -320,39 +320,45 @@ export default function Home() {
         textAlign: 'center',
         marginTop: '50px'
       }}>
+        {/* 開発環境のみでADMIN ACCESSを表示 */}
+        {process.env.NODE_ENV === 'development' && (
+          <>
+            <div style={{
+              fontFamily: 'Orbitron, monospace',
+              color: '#00ffff',
+              fontSize: '1.2rem',
+              marginBottom: '20px',
+              textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
+            }}>
+              ADMIN ACCESS
+            </div>
+            <a 
+              href="http://localhost:3333" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                display: 'inline-block', 
+                background: 'linear-gradient(45deg, #00ffff, #0080ff)',
+                color: '#000', 
+                padding: '12px 25px', 
+                textDecoration: 'none', 
+                borderRadius: '25px',
+                fontFamily: 'Orbitron, monospace',
+                fontWeight: '600',
+                boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)',
+                transition: 'all 0.3s ease',
+                marginBottom: '20px'
+              }}
+            >
+              🚀 Sanity Studio ACCESS
+            </a>
+          </>
+        )}
         <div style={{
-          fontFamily: 'Orbitron, monospace',
-          color: '#00ffff',
-          fontSize: '1.2rem',
-          marginBottom: '20px',
-          textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
-        }}>
-          ADMIN ACCESS
-        </div>
-        <a 
-          href="http://localhost:3333" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ 
-            display: 'inline-block', 
-            background: 'linear-gradient(45deg, #00ffff, #0080ff)',
-            color: '#000', 
-            padding: '12px 25px', 
-            textDecoration: 'none', 
-            borderRadius: '25px',
-            fontFamily: 'Orbitron, monospace',
-            fontWeight: '600',
-            boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          🚀 Sanity Studio ACCESS
-        </a>
-        <div style={{
-          marginTop: '20px',
           color: '#666',
           fontSize: '0.8rem',
-          fontFamily: 'Orbitron, monospace'
+          fontFamily: 'Orbitron, monospace',
+          marginTop: process.env.NODE_ENV === 'development' ? '20px' : '0'
         }}>
           © 2025 FX FUTURE ARCHIVES | Powered by Next.js & Sanity
         </div>
