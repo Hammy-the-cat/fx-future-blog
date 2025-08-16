@@ -211,7 +211,7 @@ export default async function Home() {
               </div>
               
               <a 
-                href="#" 
+                href={`/posts/${post.slug.current}`}
                 style={{
                   background: 'linear-gradient(45deg, #00ffff, #0080ff)',
                   color: '#000',
