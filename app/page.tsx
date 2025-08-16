@@ -595,9 +595,76 @@ export default function Home() {
           color: '#666',
           fontSize: '0.8rem',
           fontFamily: 'Orbitron, monospace',
-          marginTop: process.env.NODE_ENV === 'development' ? '20px' : '0'
+          marginTop: process.env.NODE_ENV === 'development' ? '20px' : '0',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '10px'
         }}>
-          © 2025 FX FUTURE ARCHIVES | Powered by Next.js & Sanity
+          <div>
+            © 2025 FX FUTURE ARCHIVES | Powered by Next.js & Sanity
+          </div>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a
+              href="/privacy"
+              style={{
+                color: '#00ffff',
+                textDecoration: 'none',
+                fontSize: '0.8rem',
+                fontFamily: 'Orbitron, monospace',
+                textShadow: '0 0 5px rgba(0, 255, 255, 0.6)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.textShadow = '0 0 10px rgba(0, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.textShadow = '0 0 5px rgba(0, 255, 255, 0.6)';
+              }}
+            >
+              PRIVACY POLICY
+            </a>
+            <span style={{ color: '#444' }}>|</span>
+            <a
+              href="/terms"
+              style={{
+                color: '#00ffff',
+                textDecoration: 'none',
+                fontSize: '0.8rem',
+                fontFamily: 'Orbitron, monospace',
+                textShadow: '0 0 5px rgba(0, 255, 255, 0.6)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.textShadow = '0 0 10px rgba(0, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.textShadow = '0 0 5px rgba(0, 255, 255, 0.6)';
+              }}
+            >
+              TERMS
+            </a>
+            <span style={{ color: '#444' }}>|</span>
+            <a
+              href="/contact"
+              style={{
+                color: '#00ffff',
+                textDecoration: 'none',
+                fontSize: '0.8rem',
+                fontFamily: 'Orbitron, monospace',
+                textShadow: '0 0 5px rgba(0, 255, 255, 0.6)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.textShadow = '0 0 10px rgba(0, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.textShadow = '0 0 5px rgba(0, 255, 255, 0.6)';
+              }}
+            >
+              CONTACT
+            </a>
+          </div>
         </div>
       </footer>
       </div>
