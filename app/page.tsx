@@ -53,13 +53,18 @@ export default function Home() {
         }`)
         setCategories(categoriesData)
         
-        // アクセスランキングを生成（記事の公開日順でランダムなアクセス数を生成）
+        // 実際のアクセス数を取得してランキング生成
+        const getPostAccessCount = (slug) => {
+          return parseInt(localStorage.getItem(`post-access-${slug}`) || '0');
+        };
+
         const rankingData = postsData
           .filter(post => post.slug?.current)
           .map(post => ({
             ...post,
-            accessCount: Math.floor(Math.random() * 10000) + 100 // 100-10099のランダム値
+            accessCount: getPostAccessCount(post.slug.current)
           }))
+          .filter(post => post.accessCount > 0) // アクセス数0の記事は除外
           .sort((a, b) => b.accessCount - a.accessCount)
           .slice(0, 5); // トップ5のみ
         

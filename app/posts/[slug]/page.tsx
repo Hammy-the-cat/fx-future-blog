@@ -1,8 +1,11 @@
+'use client'
+
 import { client, postQuery, urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { notFound } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 // PortableTextの表示コンポーネント
 const portableTextComponents = {
@@ -39,8 +42,65 @@ const portableTextComponents = {
   },
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const post = await client.fetch(postQuery, { slug: params.slug })
+export default function PostPage({ params }: { params: { slug: string } }) {
+  const [post, setPost] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const postData = await client.fetch(postQuery, { slug: params.slug })
+        
+        if (!postData) {
+          notFound()
+          return
+        }
+
+        setPost(postData)
+        
+        // アクセス数をカウント（LocalStorageに保存）
+        const storageKey = `post-access-${params.slug}`
+        const currentCount = parseInt(localStorage.getItem(storageKey) || '0')
+        const newCount = currentCount + 1
+        localStorage.setItem(storageKey, newCount.toString())
+        
+        console.log(`Article accessed: ${postData.title}, Total views: ${newCount}`)
+        
+      } catch (error) {
+        console.error('Error fetching post:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPost()
+  }, [params.slug])
+
+  if (loading) {
+    return (
+      <>
+        <div className="cyber-bg"></div>
+        <div className="grid-overlay"></div>
+        <div style={{ 
+          minHeight: '100vh', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          position: 'relative',
+          zIndex: 1
+        }}>
+          <div style={{
+            color: '#00ffff',
+            fontFamily: 'Orbitron, monospace',
+            fontSize: '1.5rem',
+            textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
+          }}>
+            LOADING DATA...
+          </div>
+        </div>
+      </>
+    )
+  }
 
   if (!post) {
     notFound()
