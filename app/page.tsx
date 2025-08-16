@@ -7,6 +7,7 @@ export default function Home() {
   const [posts, setPosts] = useState([])
   const [categories, setCategories] = useState([])
   const [visitCount, setVisitCount] = useState('000001')
+  const [selectedCategory, setSelectedCategory] = useState(null)
 
   useEffect(() => {
     // アクセスカウンターの処理
@@ -123,27 +124,62 @@ export default function Home() {
             gap: '15px',
             justifyContent: 'center'
           }}>
-            {categories.map((category) => (
-              <span
-                key={category._id}
+            {categories.map((category) => {
+              const isSelected = selectedCategory === category._id;
+              return (
+                <span
+                  key={category._id}
+                  onClick={() => setSelectedCategory(category._id)}
+                  style={{
+                    background: isSelected 
+                      ? 'linear-gradient(45deg, rgba(255, 0, 255, 0.6), rgba(0, 255, 255, 0.6))'
+                      : 'linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2))',
+                    border: isSelected ? '2px solid #ff00ff' : '1px solid #ff00ff',
+                    borderRadius: '20px',
+                    padding: '8px 16px',
+                    color: '#ffffff',
+                    fontFamily: 'Orbitron, monospace',
+                    fontSize: '0.9rem',
+                    fontWeight: isSelected ? '700' : '500',
+                    textShadow: isSelected 
+                      ? '0 0 10px rgba(255, 0, 255, 1)'
+                      : '0 0 5px rgba(255, 0, 255, 0.5)',
+                    boxShadow: isSelected 
+                      ? '0 0 20px rgba(255, 0, 255, 0.6)'
+                      : '0 0 10px rgba(255, 0, 255, 0.3)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    transform: isSelected ? 'scale(1.05)' : 'scale(1)'
+                  }}
+                >
+                  {category.title}
+                </span>
+              );
+            })}
+            
+            {/* リセットボタン */}
+            {selectedCategory && (
+              <button
+                onClick={() => setSelectedCategory(null)}
                 style={{
-                  background: 'linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2))',
-                  border: '1px solid #ff00ff',
+                  background: 'linear-gradient(45deg, #ff4757, #ff6b7a)',
+                  border: '1px solid #ff4757',
                   borderRadius: '20px',
                   padding: '8px 16px',
                   color: '#ffffff',
                   fontFamily: 'Orbitron, monospace',
                   fontSize: '0.9rem',
-                  fontWeight: '500',
-                  textShadow: '0 0 5px rgba(255, 0, 255, 0.5)',
-                  boxShadow: '0 0 10px rgba(255, 0, 255, 0.3)',
+                  fontWeight: '600',
+                  textShadow: '0 0 5px rgba(255, 71, 87, 0.8)',
+                  boxShadow: '0 0 15px rgba(255, 71, 87, 0.4)',
                   cursor: 'pointer',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  marginTop: '10px'
                 }}
               >
-                {category.title}
-              </span>
-            ))}
+                🔄 SHOW ALL
+              </button>
+            )}
           </div>
         </nav>
       ) : (
@@ -170,8 +206,34 @@ export default function Home() {
         </nav>
       )}
 
+      {/* フィルター結果表示 */}
+      {selectedCategory && (
+        <div style={{
+          background: 'rgba(0, 0, 0, 0.8)',
+          border: '1px solid #00ff88',
+          borderRadius: '10px',
+          padding: '15px',
+          marginBottom: '20px',
+          textAlign: 'center'
+        }}>
+          <span style={{
+            fontFamily: 'Orbitron, monospace',
+            color: '#00ff88',
+            fontSize: '0.9rem',
+            textShadow: '0 0 8px rgba(0, 255, 136, 0.8)'
+          }}>
+            📊 FILTERED BY: {categories.find(cat => cat._id === selectedCategory)?.title || 'Unknown'}
+          </span>
+        </div>
+      )}
+
       <main>
-        {posts.map((post) => {
+        {posts
+          .filter(post => {
+            if (!selectedCategory) return true;
+            return post.categories?.some(cat => cat._id === selectedCategory);
+          })
+          .map((post) => {
           // 記事の抜粋を生成
           const excerpt = post.body && post.body.length > 0 ? 
             post.body.map(block => 
