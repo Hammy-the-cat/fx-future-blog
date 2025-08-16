@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-title {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-author {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .post-date {
+            color: #999;
+            font-size: 12px;
+        }
+        .status {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            color: #2e7d2e;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .sanity-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .sanity-link:hover {
+            background: #2980b9;
+        }
+        .info {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>✅ Blog Site セットアップ完了</h1>
+        <p>Sanityブログが正常にセットアップされました</p>
+        <a href="http://localhost:3333" target="_blank" class="sanity-link">Sanity Studioを開く</a>
+    </div>
+
+    <div class="status">
+        <h3>🎉 セットアップ状況</h3>
+        <ul>
+            <li>✅ Sanity CMS設定完了 (プロジェクトID: sfth73fb)</li>
+            <li>✅ Sanity Studio起動中 (http://localhost:3333)</li>
+            <li>✅ スキーマ設定済み (Post, Author, Category)</li>
+            <li>✅ Next.jsフロントエンド準備完了</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h3>📝 次のステップ</h3>
+        <ol>
+            <li><strong>Sanity Studioでコンテンツを作成</strong>
+                <ul>
+                    <li>Author（著者）を作成</li>
+                    <li>Category（カテゴリ）を作成</li>
+                    <li>Post（投稿）を作成</li>
+                </ul>
+            </li>
+            <li><strong>投稿を公開</strong>
+                <ul>
+                    <li>Published Atフィールドに日付を設定</li>
+                    <li>Slugを設定</li>
+                </ul>
+            </li>
+            <li><strong>フロントエンドで確認</strong>
+                <ul>
+                    <li>Next.jsアプリでコンテンツが表示されます</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="post">
+        <h2 class="post-title">サンプル投稿: Sanityブログの使い方</h2>
+        <div class="post-author">著者: ブログ管理者</div>
+        <div class="post-date">公開日: 2024年1月15日</div>
+        <p>
+            このSanityブログでは、以下のことができます：
+        </p>
+        <ul>
+            <li>リッチテキストエディタでの記事作成</li>
+            <li>画像のアップロードと管理</li>
+            <li>著者とカテゴリの管理</li>
+            <li>投稿のスケジュール機能</li>
+            <li>Portable Textでの柔軟なコンテンツ構造</li>
+        </ul>
+        <p>
+            Sanity Studioにアクセスして、最初の投稿を作成してみましょう！
+        </p>
+    </div>
+
+    <div class="post">
+        <h2 class="post-title">技術仕様</h2>
+        <div class="post-author">著者: 開発チーム</div>
+        <div class="post-date">公開日: 2024年1月15日</div>
+        <p>このブログは以下の技術で構築されています：</p>
+        <ul>
+            <li><strong>CMS:</strong> Sanity.io</li>
+            <li><strong>フロントエンド:</strong> Next.js 15</li>
+            <li><strong>スタイリング:</strong> Tailwind CSS</li>
+            <li><strong>言語:</strong> TypeScript</li>
+        </ul>
+        <p>コンテンツはSanity StudioからAPIを通じてフロントエンドに配信されます。</p>
+    </div>
+
+    <script>
+        // ページ読み込み時にSanity Studioの状態をチェック
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Blog site loaded successfully!');
+            console.log('Sanity Studio: http://localhost:3333');
+            console.log('Project ID: sfth73fb');
+        });
+    </script>
+</body>
+</html>

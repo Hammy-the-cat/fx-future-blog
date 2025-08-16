@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FXブログ - 記事一覧</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            font-weight: 600;
+        }
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 18px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .nav-link {
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .nav-link:hover {
+            background: #5a6fd8;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+        .post-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .post-header {
+            padding: 25px 25px 15px 25px;
+        }
+        .post-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+        }
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .author-name {
+            color: #666;
+            font-size: 14px;
+        }
+        .publish-date {
+            color: #999;
+            font-size: 12px;
+        }
+        .post-excerpt {
+            padding: 0 25px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .post-footer {
+            padding: 20px 25px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .read-more {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .read-more:hover {
+            background: #5a6fd8;
+        }
+        .slug-info {
+            color: #999;
+            font-size: 12px;
+        }
+        .new-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .stats {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-links">
+        <a href="future-blog.html" class="nav-link">🏠 ブログホーム</a>
+    </div>
+
+    <div class="header">
+        <h1>📈 FXブログ</h1>
+        <p class="subtitle">実践的なFX・投資情報をお届け</p>
+    </div>
+
+    <div class="stats">
+        <h3>📊 ブログ統計</h3>
+        <p><strong>総記事数:</strong> 3記事 | <strong>著者:</strong> Elice-FX01 | <strong>最新更新:</strong> 2025年8月14日</p>
+    </div>
+
+    <div class="posts-grid">
+        <!-- 最新記事: エントリーテクニック -->
+        <article class="post-card">
+            <div class="post-header">
+                <h2 class="post-title">
+                    FX勝率を劇的に上げる！エントリー前の5つの視点
+                    <span class="new-badge">Latest</span>
+                </h2>
+                <div class="post-meta">
+                    <div class="author-avatar">E</div>
+                    <div>
+                        <div class="author-name">Elice-FX01</div>
+                        <div class="publish-date">投稿日: 2025年8月14日</div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-excerpt">
+                <p>FXで勝つために最も重要なのは「どこでエントリーするか」の判断です。プロトレーダーが実践しているエントリー前の最終チェックリストをご紹介。この5つの項目を確認するだけで、勝率が格段に向上します。</p>
+                <p><strong>主な内容:</strong></p>
+                <ul>
+                    <li>時間足確定タイミングの重要性</li>
+                    <li>感情制御と客観的判断基準</li>
+                    <li>上位足環境認識による総合判断</li>
+                    <li>損切り設定とリスクリワード計算</li>
+                    <li>根拠の強さを数値化する手法</li>
+                </ul>
+            </div>
+            <div class="post-footer">
+                <a href="entry-techniques-blog.html" class="read-more">続きを読む</a>
+                <div class="slug-info">Slug: entry-techniques</div>
+            </div>
+        </article>
+
+        <!-- 記事2: エリオット波動 -->
+        <article class="post-card">
+            <div class="post-header">
+                <h2 class="post-title">
+                    《FX》エリオット波動の実践応用
+                    <span class="new-badge">New</span>
+                </h2>
+                <div class="post-meta">
+                    <div class="author-avatar">E</div>
+                    <div>
+                        <div class="author-name">Elice-FX01</div>
+                        <div class="publish-date">投稿日: 2025年8月14日</div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-excerpt">
+                <p>なぜ多くのトレーダーは第3波を捉えられないのか？エリオット波動理論の実践的な観点から、第3波を的確に捉える方法について詳しく解説します。理論だけでなく、実際のトレードで使える具体的なテクニックも紹介。</p>
+                <p><strong>主な内容:</strong></p>
+                <ul>
+                    <li>第2波の正確な見極め方法</li>
+                    <li>第3波と第5波を区別する判断法</li>
+                    <li>実践で勝ち続けるための心構え</li>
+                    <li>環境認識による総合判断</li>
+                </ul>
+            </div>
+            <div class="post-footer">
+                <a href="#" class="read-more">続きを読む</a>
+                <div class="slug-info">Slug: eriot-wave</div>
+            </div>
+        </article>
+
+        <!-- 最初の記事: FX基本知識 -->
+        <article class="post-card">
+            <div class="post-header">
+                <h2 class="post-title">FX初心者が知っておきたい基本知識</h2>
+                <div class="post-meta">
+                    <div class="author-avatar">E</div>
+                    <div>
+                        <div class="author-name">Elice-FX01</div>
+                        <div class="publish-date">公開日: 2025年8月13日</div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-excerpt">
+                <p>FXを始めてみたいけれど、専門用語が多くて難しそう…そんな風に感じていませんか？この記事では、初心者の方が最初に覚えておきたいトレードスタイル、市場時間、重要な経済指標について分かりやすく解説します。</p>
+                <p><strong>主な内容:</strong></p>
+                <ul>
+                    <li>4つのトレードスタイル比較</li>
+                    <li>FX市場の取引時間と特徴</li>
+                    <li>相場を動かす重要な経済指標</li>
+                    <li>実践的なトレードのコツ</li>
+                </ul>
+            </div>
+            <div class="post-footer">
+                <a href="fx-blog.html" class="read-more">続きを読む</a>
+                <div class="slug-info">Slug: fx-beginner-guid</div>
+            </div>
+        </article>
+    </div>
+
+    <div class="footer">
+        <h3>🚀 コンテンツ管理について</h3>
+        <p>このブログはSanity CMSで管理されており、リアルタイムで更新されます。</p>
+        <p>新しい記事はSanity Studioで作成・編集できます。</p>
+        <p>© 2024 FXブログ - Powered by Sanity CMS</p>
+    </div>
+</body>
+</html>

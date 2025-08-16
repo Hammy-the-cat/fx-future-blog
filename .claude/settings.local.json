@@ -55,8 +55,23 @@
       "WebFetch(domain:app.exchangerate-api.com)",
       "Bash(git mv:*)",
       "Bash(gh repo view:*)",
-      "WebFetch(domain:hammy-the-cat.github.io)"
+      "WebFetch(domain:hammy-the-cat.github.io)",
+      "Bash(git clone:*)",
+      "WebFetch(domain:fred.stlouisfed.org)",
+      "WebSearch",
+      "Bash(copy economic-calendar-mobile.html economic-calendarindex.html)",
+      "Bash(touch:*)",
+      "Bash(CDPATH= cd ./economic-calendar)",
+      "Bash(sanity create:*)",
+      "Bash(sanity:*)",
+      "Bash(npm init:*)",
+      "Bash(npx create-next-app:*)",
+      "WebFetch(domain:info.monex.co.jp)",
+      "Bash(tar:*)",
+      "Bash(git tag:*)",
+      "Bash(git reset:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }
