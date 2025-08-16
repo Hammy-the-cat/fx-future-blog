@@ -51,6 +51,10 @@ export default function Home() {
           _updatedAt
         }`)
         setCategories(categoriesData)
+        
+        // デバッグ用ログ
+        console.log('Posts data:', postsData)
+        console.log('Categories data:', categoriesData)
       } catch (error) {
         console.error('Data fetch error:', error)
       }
@@ -125,11 +129,14 @@ export default function Home() {
             justifyContent: 'center'
           }}>
             {categories.map((category) => {
-              const isSelected = selectedCategory === category._id;
+              const isSelected = selectedCategory === category.title;
               return (
                 <span
                   key={category._id}
-                  onClick={() => setSelectedCategory(category._id)}
+                  onClick={() => {
+                    console.log('Selected category:', category.title)
+                    setSelectedCategory(category.title)
+                  }}
                   style={{
                     background: isSelected 
                       ? 'linear-gradient(45deg, rgba(255, 0, 255, 0.6), rgba(0, 255, 255, 0.6))'
@@ -222,7 +229,7 @@ export default function Home() {
             fontSize: '0.9rem',
             textShadow: '0 0 8px rgba(0, 255, 136, 0.8)'
           }}>
-            📊 FILTERED BY: {categories.find(cat => cat._id === selectedCategory)?.title || 'Unknown'}
+            📊 FILTERED BY: {selectedCategory || 'Unknown'}
           </span>
         </div>
       )}
@@ -231,7 +238,8 @@ export default function Home() {
         {posts
           .filter(post => {
             if (!selectedCategory) return true;
-            return post.categories?.some(cat => cat._id === selectedCategory);
+            console.log('Filtering post:', post.title, 'Categories:', post.categories)
+            return post.categories?.some(cat => cat.title === selectedCategory);
           })
           .map((post) => {
           // 記事の抜粋を生成
