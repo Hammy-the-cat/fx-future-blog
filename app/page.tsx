@@ -238,8 +238,10 @@ export default function Home() {
         {posts
           .filter(post => {
             if (!selectedCategory) return true;
-            console.log('Filtering post:', post.title, 'Categories:', post.categories)
-            return post.categories?.some(cat => cat.title === selectedCategory);
+            console.log('Filtering post:', post.title, 'Categories:', post.categories?.map(cat => cat.title))
+            const hasCategory = post.categories?.some(cat => cat.title === selectedCategory);
+            console.log('Has category match:', hasCategory)
+            return hasCategory;
           })
           .map((post) => {
           // 記事の抜粋を生成
