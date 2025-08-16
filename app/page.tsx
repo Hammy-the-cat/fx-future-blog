@@ -1,51 +1,62 @@
-import { client } from '@/lib/sanity'
+'use client'
 
-export default async function Home() {
-  // 記事を取得
-  const posts = await client.fetch(`*[_type == "post"] | order(publishedAt desc) {
-    _id,
-    title,
-    slug,
-    author->{
-      name,
-      image
-    },
-    mainImage,
-    categories[]->{
-      title
-    },
-    publishedAt,
-    body[0...2]{
-      ...,
-      children[]{
-        text
+import { client } from '@/lib/sanity'
+import { useEffect, useState } from 'react'
+
+export default function Home() {
+  const [posts, setPosts] = useState([])
+  const [categories, setCategories] = useState([])
+  const [visitCount, setVisitCount] = useState('000001')
+
+  useEffect(() => {
+    // アクセスカウンターの処理
+    const currentCount = parseInt(localStorage.getItem('fx-blog-visits') || '0')
+    const newCount = currentCount + 1
+    localStorage.setItem('fx-blog-visits', newCount.toString())
+    setVisitCount(newCount.toString().padStart(6, '0'))
+
+    // データ取得
+    const fetchData = async () => {
+      try {
+        // 記事を取得
+        const postsData = await client.fetch(`*[_type == "post"] | order(publishedAt desc) {
+          _id,
+          title,
+          slug,
+          author->{
+            name,
+            image
+          },
+          mainImage,
+          categories[]->{
+            title
+          },
+          publishedAt,
+          body[0...2]{
+            ...,
+            children[]{
+              text
+            }
+          }
+        }`)
+        setPosts(postsData.filter(post => post.slug?.current))
+
+        // カテゴリーを取得
+        const categoriesData = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
+          _id,
+          title,
+          description,
+          _createdAt,
+          _updatedAt
+        }`)
+        setCategories(categoriesData)
+      } catch (error) {
+        console.error('Data fetch error:', error)
       }
     }
-  }`)
 
-  // 有効な記事のみをフィルタリング
-  const validPosts = posts.filter(post => post.slug?.current)
-
-  // カテゴリーを取得
-  let categories = []
-  let error = null
-
-  try {
-    categories = await client.fetch(`*[_type == "category"] | order(_createdAt desc) {
-      _id,
-      title,
-      description,
-      _createdAt,
-      _updatedAt
-    }`)
-    
-    console.log('Categories:', categories)
-    
-  } catch (err) {
-    error = err
-    console.error('Categories fetch error:', err)
-    categories = []
-  }
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -55,25 +66,35 @@ export default async function Home() {
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', position: 'relative', zIndex: 1 }}>
         <header className="futuristic-header">
         <h1 className="futuristic-title">FX FUTURE ARCHIVES</h1>
-        <a 
-          href="http://localhost:3333" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ 
-            display: 'inline-block', 
-            background: 'linear-gradient(45deg, #00ffff, #0080ff)',
-            color: '#000', 
-            padding: '12px 25px', 
-            textDecoration: 'none', 
-            borderRadius: '25px',
-            fontFamily: 'Orbitron, monospace',
-            fontWeight: '600',
-            marginTop: '20px',
-            boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)'
-          }}
-        >
-          🚀 Sanity Studio ACCESS
-        </a>
+        
+        {/* アクセスカウンター */}
+        <div style={{
+          background: 'rgba(0, 0, 0, 0.6)',
+          border: '1px solid #00ffff',
+          borderRadius: '10px',
+          padding: '15px 20px',
+          marginTop: '20px',
+          display: 'inline-block',
+          fontFamily: 'Orbitron, monospace',
+          color: '#00ffff',
+          textShadow: '0 0 10px rgba(0, 255, 255, 0.8)',
+          boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)'
+        }}>
+          <div style={{ 
+            fontSize: '0.8rem', 
+            marginBottom: '5px',
+            opacity: 0.8
+          }}>
+            TOTAL ACCESS COUNT
+          </div>
+          <div style={{
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            letterSpacing: '2px'
+          }}>
+            {visitCount}
+          </div>
+        </div>
       </header>
       
       
@@ -150,7 +171,7 @@ export default async function Home() {
       )}
 
       <main>
-        {validPosts.map((post) => {
+        {posts.map((post) => {
           // 記事の抜粋を生成
           const excerpt = post.body && post.body.length > 0 ? 
             post.body.map(block => 
@@ -288,6 +309,54 @@ export default async function Home() {
           )
         })}
       </main>
+
+      {/* フッター */}
+      <footer style={{
+        background: 'rgba(0, 0, 0, 0.9)',
+        border: '1px solid #00ffff',
+        borderRadius: '15px',
+        margin: '20px',
+        padding: '30px',
+        textAlign: 'center',
+        marginTop: '50px'
+      }}>
+        <div style={{
+          fontFamily: 'Orbitron, monospace',
+          color: '#00ffff',
+          fontSize: '1.2rem',
+          marginBottom: '20px',
+          textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
+        }}>
+          ADMIN ACCESS
+        </div>
+        <a 
+          href="http://localhost:3333" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ 
+            display: 'inline-block', 
+            background: 'linear-gradient(45deg, #00ffff, #0080ff)',
+            color: '#000', 
+            padding: '12px 25px', 
+            textDecoration: 'none', 
+            borderRadius: '25px',
+            fontFamily: 'Orbitron, monospace',
+            fontWeight: '600',
+            boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          🚀 Sanity Studio ACCESS
+        </a>
+        <div style={{
+          marginTop: '20px',
+          color: '#666',
+          fontSize: '0.8rem',
+          fontFamily: 'Orbitron, monospace'
+        }}>
+          © 2025 FX FUTURE ARCHIVES | Powered by Next.js & Sanity
+        </div>
+      </footer>
       </div>
     </>
   )
