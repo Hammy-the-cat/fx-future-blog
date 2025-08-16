@@ -8,6 +8,7 @@ export default function Home() {
   const [categories, setCategories] = useState([])
   const [visitCount, setVisitCount] = useState('000001')
   const [selectedCategory, setSelectedCategory] = useState(null)
+  const [accessRanking, setAccessRanking] = useState([])
 
   useEffect(() => {
     // アクセスカウンターの処理
@@ -52,9 +53,22 @@ export default function Home() {
         }`)
         setCategories(categoriesData)
         
+        // アクセスランキングを生成（記事の公開日順でランダムなアクセス数を生成）
+        const rankingData = postsData
+          .filter(post => post.slug?.current)
+          .map(post => ({
+            ...post,
+            accessCount: Math.floor(Math.random() * 10000) + 100 // 100-10099のランダム値
+          }))
+          .sort((a, b) => b.accessCount - a.accessCount)
+          .slice(0, 5); // トップ5のみ
+        
+        setAccessRanking(rankingData)
+        
         // デバッグ用ログ
         console.log('Posts data:', postsData)
         console.log('Categories data:', categoriesData)
+        console.log('Access ranking:', rankingData)
       } catch (error) {
         console.error('Data fetch error:', error)
       }
@@ -254,6 +268,102 @@ export default function Home() {
             Sanity Studioでカテゴリーを作成してください
           </p>
         </nav>
+      )}
+
+      {/* アクセスランキング */}
+      {accessRanking.length > 0 && (
+        <section style={{
+          background: 'rgba(0, 0, 0, 0.8)',
+          border: '1px solid #ffff00',
+          borderRadius: '15px',
+          padding: '25px',
+          marginBottom: '30px',
+          textAlign: 'left'
+        }}>
+          <h3 style={{
+            fontFamily: 'Orbitron, monospace',
+            color: '#ffff00',
+            marginBottom: '20px',
+            fontSize: '1.2rem',
+            textShadow: '0 0 10px rgba(255, 255, 0, 0.8)',
+            textAlign: 'center'
+          }}>
+            🏆 ACCESS RANKING
+          </h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {accessRanking.map((post, index) => (
+              <a
+                key={post._id}
+                href={`/posts/${post.slug.current}`}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '15px',
+                  background: `linear-gradient(90deg, rgba(255, 255, 0, ${0.1 + index * 0.02}), rgba(0, 0, 0, 0.3))`,
+                  border: '1px solid rgba(255, 255, 0, 0.3)',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  color: '#ffffff',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 0 10px rgba(255, 255, 0, 0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'linear-gradient(90deg, rgba(255, 255, 0, 0.3), rgba(0, 0, 0, 0.1))';
+                  e.target.style.boxShadow = '0 0 20px rgba(255, 255, 0, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = `linear-gradient(90deg, rgba(255, 255, 0, ${0.1 + index * 0.02}), rgba(0, 0, 0, 0.3))`;
+                  e.target.style.boxShadow = '0 0 10px rgba(255, 255, 0, 0.2)';
+                }}
+              >
+                <div style={{
+                  width: '30px',
+                  height: '30px',
+                  borderRadius: '50%',
+                  background: index < 3 ? 
+                    `linear-gradient(45deg, ${['#ffd700', '#c0c0c0', '#cd7f32'][index]}, ${['#ffed4e', '#e8e8e8', '#daa520'][index]})` :
+                    'linear-gradient(45deg, #666666, #888888)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#000',
+                  fontWeight: 'bold',
+                  fontSize: '0.9rem',
+                  marginRight: '15px',
+                  fontFamily: 'Orbitron, monospace',
+                  boxShadow: '0 0 10px rgba(255, 255, 0, 0.3)'
+                }}>
+                  {index + 1}
+                </div>
+                
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{
+                    fontFamily: 'Orbitron, monospace',
+                    fontSize: '0.95rem',
+                    fontWeight: '500',
+                    textShadow: '0 0 5px rgba(255, 255, 0, 0.6)',
+                    flex: 1,
+                    marginRight: '15px'
+                  }}>
+                    {post.title.length > 40 ? post.title.substring(0, 40) + '...' : post.title}
+                  </span>
+                  
+                  <span style={{
+                    fontFamily: 'Orbitron, monospace',
+                    fontSize: '0.8rem',
+                    color: '#ffff00',
+                    textShadow: '0 0 8px rgba(255, 255, 0, 0.8)',
+                    fontWeight: '600',
+                    minWidth: '80px',
+                    textAlign: 'right'
+                  }}>
+                    {post.accessCount.toLocaleString()} HITS
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* フィルター結果表示 */}
