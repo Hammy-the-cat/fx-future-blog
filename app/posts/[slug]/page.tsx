@@ -152,13 +152,15 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </div>
         </header>
 
-        <article className="max-w-4xl mx-auto px-4 py-8">
+        <article className="max-w-3xl mx-auto px-4 py-8">
           <div style={{
             background: 'rgba(0, 0, 0, 0.8)',
             border: '1px solid #ff00ff',
             borderRadius: '15px',
             padding: '40px',
-            backdropFilter: 'blur(10px)'
+            backdropFilter: 'blur(10px)',
+            maxWidth: '800px',
+            margin: '0 auto'
           }}>
           {/* 記事のメタ情報 */}
           <div style={{ 
