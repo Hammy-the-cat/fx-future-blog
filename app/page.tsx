@@ -160,8 +160,64 @@ export default async function Home() {
             ).join(' ').substring(0, 200) + '...' : 
             '本文なし';
 
+          // カテゴリー別カラーパレット
+          const getCategoryColors = (categories) => {
+            if (!categories || categories.length === 0) {
+              return {
+                border: '#00ffff',
+                glow: 'rgba(0, 255, 255, 0.3)',
+                accent: '#00ffff',
+                accentGlow: 'rgba(0, 255, 255, 0.4)'
+              };
+            }
+            
+            const category = categories[0].title.toLowerCase();
+            
+            switch (category) {
+              case 'crypto':
+                return {
+                  border: '#ffd700',
+                  glow: 'rgba(255, 215, 0, 0.3)',
+                  accent: '#ffd700',
+                  accentGlow: 'rgba(255, 215, 0, 0.4)'
+                };
+              case 'fx skills':
+                return {
+                  border: '#00ff88',
+                  glow: 'rgba(0, 255, 136, 0.3)',
+                  accent: '#00ff88',
+                  accentGlow: 'rgba(0, 255, 136, 0.4)'
+                };
+              case 'economic news':
+                return {
+                  border: '#ff4757',
+                  glow: 'rgba(255, 71, 87, 0.3)',
+                  accent: '#ff4757',
+                  accentGlow: 'rgba(255, 71, 87, 0.4)'
+                };
+              default:
+                return {
+                  border: '#ff00ff',
+                  glow: 'rgba(255, 0, 255, 0.3)',
+                  accent: '#ff00ff',
+                  accentGlow: 'rgba(255, 0, 255, 0.4)'
+                };
+            }
+          };
+
+          const colors = getCategoryColors(post.categories);
+
           return (
-          <article key={post._id} className="post-card">
+          <article key={post._id} style={{
+            background: 'rgba(0, 0, 0, 0.8)',
+            border: `1px solid ${colors.border}`,
+            borderRadius: '15px',
+            padding: '30px',
+            marginBottom: '30px',
+            backdropFilter: 'blur(10px)',
+            boxShadow: `0 0 20px ${colors.glow}`,
+            transition: 'all 0.3s ease'
+          }}>
             <div className="post-content">
               <h2 className="post-title">{post.title}</h2>
               
@@ -170,14 +226,14 @@ export default async function Home() {
                   width: '50px',
                   height: '50px',
                   borderRadius: '50%',
-                  background: 'linear-gradient(45deg, #00ffff, #ff00ff)',
+                  background: `linear-gradient(45deg, ${colors.accent}, #ff00ff)`,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#000',
                   fontWeight: 'bold',
                   fontSize: '18px',
-                  boxShadow: '0 0 20px rgba(0, 255, 255, 0.4)'
+                  boxShadow: `0 0 20px ${colors.accentGlow}`
                 }}>
                   E
                 </div>
@@ -213,7 +269,7 @@ export default async function Home() {
               <a 
                 href={`/posts/${post.slug.current}`}
                 style={{
-                  background: 'linear-gradient(45deg, #00ffff, #0080ff)',
+                  background: `linear-gradient(45deg, ${colors.accent}, ${colors.border})`,
                   color: '#000',
                   padding: '12px 25px',
                   textDecoration: 'none',
@@ -222,7 +278,7 @@ export default async function Home() {
                   fontWeight: '600',
                   display: 'inline-block',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 0 15px rgba(0, 255, 255, 0.3)'
+                  boxShadow: `0 0 15px ${colors.glow}`
                 }}
               >
                 ⚡ ACCESS DATA
