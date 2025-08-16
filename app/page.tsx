@@ -125,7 +125,7 @@ export default function Home() {
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '15px',
+            gap: '20px',
             justifyContent: 'center'
           }}>
             {categories.map((category) => {
@@ -182,22 +182,24 @@ export default function Home() {
                   }}
                   style={{
                     background: isSelected ? colors.selectedGradient : colors.gradient,
-                    border: isSelected ? `2px solid ${colors.border}` : `1px solid ${colors.border}`,
-                    borderRadius: '20px',
-                    padding: '8px 16px',
+                    border: isSelected ? `3px solid ${colors.border}` : `2px solid ${colors.border}`,
+                    borderRadius: '25px',
+                    padding: '12px 24px',
                     color: '#ffffff',
                     fontFamily: 'Orbitron, monospace',
-                    fontSize: '0.9rem',
-                    fontWeight: isSelected ? '700' : '500',
+                    fontSize: '1.1rem',
+                    fontWeight: isSelected ? '700' : '600',
                     textShadow: isSelected 
-                      ? `0 0 10px ${colors.border}`
-                      : `0 0 5px ${colors.glow.replace('0.3', '0.8')}`,
+                      ? `0 0 12px ${colors.border}`
+                      : `0 0 8px ${colors.glow.replace('0.3', '0.8')}`,
                     boxShadow: isSelected 
-                      ? `0 0 20px ${colors.selectedGlow}`
-                      : `0 0 10px ${colors.glow}`,
+                      ? `0 0 25px ${colors.selectedGlow}`
+                      : `0 0 15px ${colors.glow}`,
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
-                    transform: isSelected ? 'scale(1.05)' : 'scale(1)'
+                    transform: isSelected ? 'scale(1.1)' : 'scale(1)',
+                    minWidth: '120px',
+                    textAlign: 'center'
                   }}
                 >
                   {category.title}
