@@ -234,7 +234,14 @@ export default function Home() {
         </div>
       )}
 
-      <main>
+      <main style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(500px, 100%), 1fr))',
+        gap: '30px',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 20px'
+      }}>
         {posts
           .filter(post => {
             if (!selectedCategory) return true;
@@ -305,11 +312,11 @@ export default function Home() {
             background: 'rgba(0, 0, 0, 0.8)',
             border: `1px solid ${colors.border}`,
             borderRadius: '15px',
-            padding: '30px',
-            marginBottom: '30px',
+            padding: '25px',
             backdropFilter: 'blur(10px)',
             boxShadow: `0 0 20px ${colors.glow}`,
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            height: 'fit-content'
           }}>
             <div className="post-content">
               <h2 className="post-title">{post.title}</h2>
