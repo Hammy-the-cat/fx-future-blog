@@ -664,6 +664,26 @@ export default function Home() {
             >
               CONTACT
             </a>
+            <span style={{ color: '#444' }}>|</span>
+            <a
+              href="/about"
+              style={{
+                color: '#00ffff',
+                textDecoration: 'none',
+                fontSize: '0.8rem',
+                fontFamily: 'Orbitron, monospace',
+                textShadow: '0 0 5px rgba(0, 255, 255, 0.6)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.textShadow = '0 0 10px rgba(0, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.textShadow = '0 0 5px rgba(0, 255, 255, 0.6)';
+              }}
+            >
+              ABOUT
+            </a>
           </div>
         </div>
       </footer>
