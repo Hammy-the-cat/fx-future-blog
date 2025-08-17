@@ -1,6 +1,6 @@
 'use client'
 
-import { client } from '@/lib/sanity'
+import { client, postsQuery } from '@/lib/sanity'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -48,57 +48,144 @@ export default function Home() {
     
     updateSiteVisits()
 
-    // データ取得（デモデータ使用）
+    // データ取得（Sanity CMSから実際のデータを取得）
     const fetchData = async () => {
       try {
-        // デモデータを設定
-        const demoPostsData = [
-          {
-            _id: '1',
-            title: 'FX市場の最新動向分析 - 2025年の展望',
-            slug: { current: 'fx-market-analysis-2025' },
-            author: { name: 'FX Expert' },
-            categories: [{ title: 'Economic news' }],
-            publishedAt: '2025-01-15',
-            body: [{ children: [{ text: 'FX市場の最新動向を分析し、2025年の展望について詳しく解説します...' }] }]
-          },
-          {
-            _id: '2', 
-            title: 'ビットコイン価格予測とトレード戦略',
-            slug: { current: 'bitcoin-trading-strategy' },
-            author: { name: 'Crypto Analyst' },
-            categories: [{ title: 'Crypto' }],
-            publishedAt: '2025-01-14',
-            body: [{ children: [{ text: 'ビットコインの価格動向を分析し、効果的なトレード戦略を紹介します...' }] }]
-          },
-          {
-            _id: '3',
-            title: 'リスク管理の基本 - FXで勝つための必須スキル',
-            slug: { current: 'risk-management-fx' },
-            author: { name: 'Trading Pro' },
-            categories: [{ title: 'FX skills' }],
-            publishedAt: '2025-01-13',
-            body: [{ children: [{ text: 'FXトレードにおけるリスク管理の重要性と実践方法について解説します...' }] }]
-          },
-          {
-            _id: '4',
-            title: '日銀政策決定会合の影響分析',
-            slug: { current: 'boj-policy-analysis' },
-            author: { name: 'Economic Analyst' },
-            categories: [{ title: 'Economic news' }],
-            publishedAt: '2025-01-12',
-            body: [{ children: [{ text: '日銀の政策決定がFX市場に与える影響について詳細に分析します...' }] }]
+        // まずSanity CMSから実際のデータを取得を試行
+        let postsData = []
+        let categoriesData = []
+        
+        try {
+          const [postsResult, categoriesResult] = await Promise.all([
+            client.fetch(postsQuery),
+            client.fetch(`*[_type == "category"] | order(_createdAt desc) {
+              _id,
+              title,
+              description
+            }`)
+          ])
+          
+          if (postsResult && postsResult.length > 0) {
+            postsData = postsResult
+            console.log('Sanity CMS data loaded successfully!')
+            console.log('Posts from Sanity:', postsResult.length)
           }
-        ]
+          
+          if (categoriesResult && categoriesResult.length > 0) {
+            categoriesData = categoriesResult
+            console.log('Categories from Sanity:', categoriesResult.length)
+          }
+        } catch (sanityError) {
+          console.warn('Sanity CMS fetch failed, using demo data:', sanityError)
+        }
         
-        const demoCategoriesData = [
-          { _id: 'cat1', title: 'Economic news', description: '経済ニュース' },
-          { _id: 'cat2', title: 'Crypto', description: '暗号通貨' },
-          { _id: 'cat3', title: 'FX skills', description: 'FXスキル' }
-        ]
+        // Sanityからデータが取得できない場合はデモデータを使用
+        if (postsData.length === 0) {
+          console.log('Using demo data as fallback')
+          postsData = [
+            {
+              _id: '1',
+              title: 'FX市場の最新動向分析 - 2025年の展望',
+              slug: { current: 'fx-market-analysis-2025' },
+              author: { name: 'FX Expert' },
+              categories: [{ title: 'Economic news' }],
+              publishedAt: '2025-01-15',
+              body: [{ children: [{ text: 'FX市場の最新動向を分析し、2025年の展望について詳しく解説します...' }] }]
+            },
+            {
+              _id: '2', 
+              title: 'ビットコイン価格予測とトレード戦略',
+              slug: { current: 'bitcoin-trading-strategy' },
+              author: { name: 'Crypto Analyst' },
+              categories: [{ title: 'Crypto' }],
+              publishedAt: '2025-01-14',
+              body: [{ children: [{ text: 'ビットコインの価格動向を分析し、効果的なトレード戦略を紹介します...' }] }]
+            },
+            {
+              _id: '3',
+              title: 'リスク管理の基本 - FXで勝つための必須スキル',
+              slug: { current: 'risk-management-fx' },
+              author: { name: 'Trading Pro' },
+              categories: [{ title: 'FX skills' }],
+              publishedAt: '2025-01-13',
+              body: [{ children: [{ text: 'FXトレードにおけるリスク管理の重要性と実践方法について解説します...' }] }]
+            },
+            {
+              _id: '4',
+              title: '日銀政策決定会合の影響分析',
+              slug: { current: 'boj-policy-analysis' },
+              author: { name: 'Economic Analyst' },
+              categories: [{ title: 'Economic news' }],
+              publishedAt: '2025-01-12',
+              body: [{ children: [{ text: '日銀の政策決定がFX市場に与える影響について詳細に分析します...' }] }]
+            },
+            {
+              _id: '5',
+              title: 'EUR/USD トレンド分析と今後の見通し',
+              slug: { current: 'eur-usd-trend-analysis' },
+              author: { name: 'FX Analyst' },
+              categories: [{ title: 'Economic news' }],
+              publishedAt: '2025-01-11',
+              body: [{ children: [{ text: 'EUR/USDペアの最新トレンドと今後の価格動向について専門的に分析します...' }] }]
+            },
+            {
+              _id: '6',
+              title: 'イーサリアム2.0の市場への影響',
+              slug: { current: 'ethereum-2-market-impact' },
+              author: { name: 'Blockchain Expert' },
+              categories: [{ title: 'Crypto' }],
+              publishedAt: '2025-01-10',
+              body: [{ children: [{ text: 'イーサリアム2.0アップデートが暗号通貨市場に与える長期的な影響を解説します...' }] }]
+            },
+            {
+              _id: '7',
+              title: 'テクニカル分析の実践 - MACDとRSIの活用法',
+              slug: { current: 'technical-analysis-macd-rsi' },
+              author: { name: 'Technical Analyst' },
+              categories: [{ title: 'FX skills' }],
+              publishedAt: '2025-01-09',
+              body: [{ children: [{ text: 'MACDとRSIを組み合わせた効果的なテクニカル分析手法を実例付きで解説します...' }] }]
+            },
+            {
+              _id: '8',
+              title: 'アメリカ雇用統計の読み方と取引戦略',
+              slug: { current: 'us-employment-data-strategy' },
+              author: { name: 'Economic Expert' },
+              categories: [{ title: 'Economic news' }],
+              publishedAt: '2025-01-08',
+              body: [{ children: [{ text: '重要経済指標である雇用統計の読み方と効果的な取引戦略について解説します...' }] }]
+            },
+            {
+              _id: '9',
+              title: 'DeFi市場の最新動向とリスク分析',
+              slug: { current: 'defi-market-trends-risks' },
+              author: { name: 'DeFi Specialist' },
+              categories: [{ title: 'Crypto' }],
+              publishedAt: '2025-01-07',
+              body: [{ children: [{ text: 'DeFi（分散型金融）市場の最新動向とリスク要因について詳しく分析します...' }] }]
+            },
+            {
+              _id: '10',
+              title: 'スキャルピング戦略 - 短期取引で利益を上げる方法',
+              slug: { current: 'scalping-strategy-guide' },
+              author: { name: 'Scalping Pro' },
+              categories: [{ title: 'FX skills' }],
+              publishedAt: '2025-01-06',
+              body: [{ children: [{ text: 'スキャルピング取引の基本から応用まで、短期取引で安定的に利益を上げる方法を解説します...' }] }]
+            }
+          ]
+        }
         
-        setPosts(demoPostsData)
-        setCategories(demoCategoriesData)
+        if (categoriesData.length === 0) {
+          categoriesData = [
+            { _id: 'cat1', title: 'Economic news', description: '経済ニュース' },
+            { _id: 'cat2', title: 'Crypto', description: '暗号通貨' },
+            { _id: 'cat3', title: 'FX skills', description: 'FXスキル' }
+          ]
+        }
+        
+        setPosts(postsData)
+        setCategories(categoriesData)
         
         // サーバーサイドからアクセスランキングを取得
         try {
@@ -106,30 +193,23 @@ export default function Home() {
           if (rankingResponse.ok) {
             const rankingResult = await rankingResponse.json()
             
-            // 記事データとアクセス統計をマージ
+            // 記事データとアクセス統計をマージ（実際の記事のみ）
             const rankingData = rankingResult.ranking
               .map(stat => {
-                const post = demoPostsData.find(p => p.slug?.current === stat.postSlug)
+                const post = postsData.find(p => p.slug?.current === stat.postSlug)
                 return post ? {
                   ...post,
                   accessCount: stat.viewCount
-                } : {
-                  _id: stat.postSlug,
-                  title: `記事: ${stat.postSlug}`,
-                  slug: { current: stat.postSlug },
-                  accessCount: stat.viewCount,
-                  categories: [{ title: 'Demo' }],
-                  author: { name: 'Unknown' },
-                  publishedAt: new Date().toISOString()
-                }
+                } : null
               })
+              .filter(post => post !== null) // 実際の記事のみフィルタ
               .slice(0, 5)
               
             setAccessRanking(rankingData)
             console.log('Ranking loaded from server:', rankingResult.source, 'Items:', rankingData.length)
           } else {
             // フォールバック: ランダムアクセス数
-            const rankingData = demoPostsData
+            const rankingData = postsData
               .map(post => ({
                 ...post,
                 accessCount: Math.floor(Math.random() * 200) + 50
@@ -143,7 +223,7 @@ export default function Home() {
         } catch (error) {
           console.error('Failed to fetch ranking:', error)
           // 最終フォールバック
-          const rankingData = demoPostsData
+          const rankingData = postsData
             .map(post => ({
               ...post,
               accessCount: Math.floor(Math.random() * 200) + 50
@@ -155,8 +235,7 @@ export default function Home() {
         }
         
         console.log('Demo data loaded successfully!')
-        console.log('Posts:', demoPostsData.length, 'Categories:', demoCategoriesData.length)
-        console.log('Access ranking:', rankingData)
+        console.log('Posts:', postsData.length, 'Categories:', categoriesData.length)
       } catch (error) {
         console.error('Data fetch error:', error)
       }

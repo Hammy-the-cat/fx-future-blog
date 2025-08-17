@@ -1,0 +1,10 @@
+{
+  "name": "fx-future-blog-elicefx01",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ]
+}

@@ -51,7 +51,19 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
       try {
         const resolvedParams = await params
         
-        // デモ記事データ
+        // まずSanity CMSから記事を取得を試行
+        let postData = null
+        
+        try {
+          postData = await client.fetch(postQuery, { slug: resolvedParams.slug })
+          if (postData) {
+            console.log('Post loaded from Sanity CMS:', postData.title)
+          }
+        } catch (sanityError) {
+          console.warn('Sanity CMS fetch failed for post, using demo data:', sanityError)
+        }
+        
+        // Sanityからデータが取得できない場合はデモ記事データを使用
         const demoPostsData = {
           'fx-market-analysis-2025': {
             _id: '1',
@@ -104,10 +116,94 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
               { children: [{ text: '金利政策の変更が為替レートに与える直接的・間接的な影響を解説します。' }] },
               { children: [{ text: '投資家が注目すべき発言内容と市場への影響予測をお伝えします。' }] }
             ]
+          },
+          'eur-usd-trend-analysis': {
+            _id: '5',
+            title: 'EUR/USD トレンド分析と今後の見通し',
+            slug: { current: 'eur-usd-trend-analysis' },
+            author: { name: 'FX Analyst' },
+            categories: [{ title: 'Economic news' }],
+            publishedAt: '2025-01-11',
+            body: [
+              { children: [{ text: 'EUR/USDペアの最新トレンドと今後の価格動向について専門的に分析します。' }] },
+              { children: [{ text: '中央銀行の政策動向と経済指標が与える影響を詳しく解説します。' }] },
+              { children: [{ text: '短期・中期・長期のトレード戦略についても解説します。' }] }
+            ]
+          },
+          'ethereum-2-market-impact': {
+            _id: '6',
+            title: 'イーサリアム2.0の市場への影響',
+            slug: { current: 'ethereum-2-market-impact' },
+            author: { name: 'Blockchain Expert' },
+            categories: [{ title: 'Crypto' }],
+            publishedAt: '2025-01-10',
+            body: [
+              { children: [{ text: 'イーサリアム2.0アップデートが暗号通貨市場に与える長期的な影響を解説します。' }] },
+              { children: [{ text: 'ステーキング機能とエネルギー効率の改善について詳しく分析します。' }] },
+              { children: [{ text: 'DeFiエコシステムへの影響と投資機会についても考察します。' }] }
+            ]
+          },
+          'technical-analysis-macd-rsi': {
+            _id: '7',
+            title: 'テクニカル分析の実践 - MACDとRSIの活用法',
+            slug: { current: 'technical-analysis-macd-rsi' },
+            author: { name: 'Technical Analyst' },
+            categories: [{ title: 'FX skills' }],
+            publishedAt: '2025-01-09',
+            body: [
+              { children: [{ text: 'MACDとRSIを組み合わせた効果的なテクニカル分析手法を実例付きで解説します。' }] },
+              { children: [{ text: 'エントリーポイントとエグジット戦略の具体的な設定方法を学びます。' }] },
+              { children: [{ text: '複数時間軸での分析手法とダイバージェンスの見極め方も解説します。' }] }
+            ]
+          },
+          'us-employment-data-strategy': {
+            _id: '8',
+            title: 'アメリカ雇用統計の読み方と取引戦略',
+            slug: { current: 'us-employment-data-strategy' },
+            author: { name: 'Economic Expert' },
+            categories: [{ title: 'Economic news' }],
+            publishedAt: '2025-01-08',
+            body: [
+              { children: [{ text: '重要経済指標である雇用統計の読み方と効果的な取引戦略について解説します。' }] },
+              { children: [{ text: '非農業部門雇用者数、失業率、平均時給の各指標の重要性を分析します。' }] },
+              { children: [{ text: '発表前後の市場の動きとリスク管理の方法について詳しく説明します。' }] }
+            ]
+          },
+          'defi-market-trends-risks': {
+            _id: '9',
+            title: 'DeFi市場の最新動向とリスク分析',
+            slug: { current: 'defi-market-trends-risks' },
+            author: { name: 'DeFi Specialist' },
+            categories: [{ title: 'Crypto' }],
+            publishedAt: '2025-01-07',
+            body: [
+              { children: [{ text: 'DeFi（分散型金融）市場の最新動向とリスク要因について詳しく分析します。' }] },
+              { children: [{ text: 'レンディング、DEX、ステーキングプールの収益性と安全性を比較検討します。' }] },
+              { children: [{ text: 'スマートコントラクトリスクとインピッシュマントロスについても解説します。' }] }
+            ]
+          },
+          'scalping-strategy-guide': {
+            _id: '10',
+            title: 'スキャルピング戦略 - 短期取引で利益を上げる方法',
+            slug: { current: 'scalping-strategy-guide' },
+            author: { name: 'Scalping Pro' },
+            categories: [{ title: 'FX skills' }],
+            publishedAt: '2025-01-06',
+            body: [
+              { children: [{ text: 'スキャルピング取引の基本から応用まで、短期取引で安定的に利益を上げる方法を解説します。' }] },
+              { children: [{ text: '最適な通貨ペアの選択と取引時間帯の見極め方について詳しく説明します。' }] },
+              { children: [{ text: 'リスク管理とメンタルコントロールの重要性についても解説します。' }] }
+            ]
           }
         }
         
-        const postData = demoPostsData[resolvedParams.slug]
+        // Sanityからデータが取得できなかった場合のみデモデータを使用
+        if (!postData) {
+          postData = demoPostsData[resolvedParams.slug]
+          if (postData) {
+            console.log('Using demo data for post:', postData.title)
+          }
+        }
         
         if (!postData) {
           notFound()

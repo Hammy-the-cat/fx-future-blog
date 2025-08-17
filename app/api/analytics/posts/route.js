@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server'
 
-// フォールバック用メモリストレージ
+// フォールバック用メモリストレージ（実際の記事データに基づく）
 let memoryStorage = {
   posts: {
-    'fx-market-analysis-2025': 234,
-    'bitcoin-trading-strategy': 189,
-    'risk-management-fx': 156,
-    'boj-policy-analysis': 123
+    'eriot-wave': { viewCount: 234, title: 'エリオット波動の実践応用' },
+    'fx-money-plan': { viewCount: 189, title: '［FX生存戦略］手法・心理・資金管理' },
+    'time-thinking': { viewCount: 156, title: '横軸（時間軸）の活用法' },
+    'daw-method': { viewCount: 123, title: 'ダウ理論と波の習性を極める' },
+    'w-buttom-and-top1': { viewCount: 98, title: 'ダブルボトム・ダブルトップの正しい使い方' }
   },
   lastUpdated: new Date().toISOString()
 }
@@ -74,9 +75,10 @@ export async function GET() {
     
     // ランキング形式でデータを返す
     const ranking = Object.entries(postStats.posts || {})
-      .map(([slug, viewCount]) => ({
+      .map(([slug, data]) => ({
         postSlug: slug,
-        viewCount: viewCount
+        viewCount: typeof data === 'object' ? data.viewCount : data,
+        postTitle: typeof data === 'object' ? data.title : null
       }))
       .sort((a, b) => b.viewCount - a.viewCount)
       .slice(0, 10)

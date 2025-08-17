@@ -74,7 +74,14 @@
       "WebFetch(domain:fx-future-blog.vercel.app)",
       "WebFetch(domain:support.google.com)",
       "Bash(dir:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(git ls-tree:*)",
+      "WebFetch(domain:fx-future-blog-1okxrxw39-excitedcherry0909-gmailcoms-projects.vercel.app)",
+      "WebFetch(domain:sfth73fb.api.sanity.io)",
+      "WebFetch(domain:fx-future-blog-elicefx01-lh5kly8yb.vercel.app)",
+      "Bash(npx create-sanity:*)",
+      "WebFetch(domain:www.sanity.io)",
+      "WebFetch(domain:fx-future-blog-elicefx01.vercel.app)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits",
