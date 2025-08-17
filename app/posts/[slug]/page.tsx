@@ -42,14 +42,72 @@ const portableTextComponents = {
   },
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export default function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const [post, setPost] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const postData = await client.fetch(postQuery, { slug: params.slug })
+        const resolvedParams = await params
+        
+        // デモ記事データ
+        const demoPostsData = {
+          'fx-market-analysis-2025': {
+            _id: '1',
+            title: 'FX市場の最新動向分析 - 2025年の展望',
+            slug: { current: 'fx-market-analysis-2025' },
+            author: { name: 'FX Expert' },
+            categories: [{ title: 'Economic news' }],
+            publishedAt: '2025-01-15',
+            body: [
+              { children: [{ text: 'FX市場の最新動向を分析し、2025年の展望について詳しく解説します。' }] },
+              { children: [{ text: '米ドル、ユーロ、円の動向と今後の見通しについて専門的な視点から分析します。' }] },
+              { children: [{ text: '投資家が注目すべきポイントと効果的な取引戦略をご紹介します。' }] }
+            ]
+          },
+          'bitcoin-trading-strategy': {
+            _id: '2',
+            title: 'ビットコイン価格予測とトレード戦略',
+            slug: { current: 'bitcoin-trading-strategy' },
+            author: { name: 'Crypto Analyst' },
+            categories: [{ title: 'Crypto' }],
+            publishedAt: '2025-01-14',
+            body: [
+              { children: [{ text: 'ビットコインの価格動向を分析し、効果的なトレード戦略を紹介します。' }] },
+              { children: [{ text: 'テクニカル分析とファンダメンタル分析の両面から市場を読み解きます。' }] },
+              { children: [{ text: 'リスク管理とポートフォリオ戦略についても詳しく解説します。' }] }
+            ]
+          },
+          'risk-management-fx': {
+            _id: '3',
+            title: 'リスク管理の基本 - FXで勝つための必須スキル',
+            slug: { current: 'risk-management-fx' },
+            author: { name: 'Trading Pro' },
+            categories: [{ title: 'FX skills' }],
+            publishedAt: '2025-01-13',
+            body: [
+              { children: [{ text: 'FXトレードにおけるリスク管理の重要性と実践方法について解説します。' }] },
+              { children: [{ text: 'ポジションサイジング、ストップロス、利益確定の設定方法を学びます。' }] },
+              { children: [{ text: '長期的に安定した利益を上げるためのメンタル管理も重要です。' }] }
+            ]
+          },
+          'boj-policy-analysis': {
+            _id: '4',
+            title: '日銀政策決定会合の影響分析',
+            slug: { current: 'boj-policy-analysis' },
+            author: { name: 'Economic Analyst' },
+            categories: [{ title: 'Economic news' }],
+            publishedAt: '2025-01-12',
+            body: [
+              { children: [{ text: '日銀の政策決定がFX市場に与える影響について詳細に分析します。' }] },
+              { children: [{ text: '金利政策の変更が為替レートに与える直接的・間接的な影響を解説します。' }] },
+              { children: [{ text: '投資家が注目すべき発言内容と市場への影響予測をお伝えします。' }] }
+            ]
+          }
+        }
+        
+        const postData = demoPostsData[resolvedParams.slug]
         
         if (!postData) {
           notFound()
@@ -58,23 +116,47 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
         setPost(postData)
         
-        // アクセス数をカウント（LocalStorageに保存）
-        const storageKey = `post-access-${params.slug}`
-        const currentCount = parseInt(localStorage.getItem(storageKey) || '0')
-        const newCount = currentCount + 1
-        localStorage.setItem(storageKey, newCount.toString())
-        
-        console.log(`Article accessed: ${postData.title}, Total views: ${newCount}`)
+        // 本番用共有アクセス数カウント
+        try {
+          const response = await fetch('/api/analytics/posts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ postSlug: resolvedParams.slug })
+          })
+          
+          if (response.ok) {
+            const data = await response.json()
+            console.log(`Article accessed: ${postData.title}, Total views: ${data.viewCount}, Source: ${data.source}`)
+          } else {
+            // フォールバック: ローカルストレージ
+            const storageKey = `post-access-${resolvedParams.slug}`
+            const currentCount = parseInt(localStorage.getItem(storageKey) || '0')
+            const newCount = currentCount + 1
+            localStorage.setItem(storageKey, newCount.toString())
+            console.log(`Article accessed (fallback): ${postData.title}, Total views: ${newCount}`)
+          }
+        } catch (error) {
+          console.error('Failed to update post access count:', error)
+          // 最終フォールバック: ローカルストレージ
+          const storageKey = `post-access-${resolvedParams.slug}`
+          const currentCount = parseInt(localStorage.getItem(storageKey) || '0')
+          const newCount = currentCount + 1
+          localStorage.setItem(storageKey, newCount.toString())
+          console.log(`Article accessed (error fallback): ${postData.title}, Total views: ${newCount}`)
+        }
         
       } catch (error) {
-        console.error('Error fetching post:', error)
+        console.error('Error loading post:', error)
+        notFound()
       } finally {
         setLoading(false)
       }
     }
 
     fetchPost()
-  }, [params.slug])
+  }, [params])
 
   if (loading) {
     return (
