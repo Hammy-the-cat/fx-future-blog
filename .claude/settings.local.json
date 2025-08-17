@@ -69,9 +69,17 @@
       "WebFetch(domain:info.monex.co.jp)",
       "Bash(tar:*)",
       "Bash(git tag:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git filter-branch:*)",
+      "WebFetch(domain:fx-future-blog.vercel.app)",
+      "WebFetch(domain:support.google.com)",
+      "Bash(dir:*)",
+      "Bash(git fetch:*)"
     ],
     "deny": [],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "C:\\Users\\pw282\\OneDrive"
+    ]
   }
 }
