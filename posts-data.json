@@ -1,0 +1,3682 @@
+{
+  "query": "*[_type == \"post\"] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    author->{\n        name,\n        image\n    },\n    mainImage,\n    categories[]->{\n        title\n    },\n    publishedAt,\n    body\n}",
+  "result": [
+    {
+      "_id": "49dc2d02-9cc2-44c4-92c3-1ef5e35d7f58",
+      "author": {
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_ref": "image-6e91ef65a1cd514e12f4167577e6e12c301adfde-1024x1024-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Elice-FX01"
+      },
+      "body": [
+        {
+          "_key": "1aa5130421cd",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d49823c70dda",
+              "_type": "span",
+              "marks": [],
+              "text": "なぜ多くのトレーダーは第3波を捉えられないのか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "c83b7a3fe22a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3bb462cb73bf",
+              "_type": "span",
+              "marks": [],
+              "text": "こんにちは！今回は、FXや株式投資で重要なテクニカル分析手法である「エリオット波動理論」について、実践的な観点から解説していきます。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b6750b6613ab",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "0ce80e8a1c5f",
+              "_type": "span",
+              "marks": [],
+              "text": "特に、多くのトレーダーが見逃してしまう「第3波」を的確に捉える方法に焦点を当てて説明します。理論だけでなく、実際のトレードで使える具体的なテクニックもご紹介しますので、ぜひ最後までお読みください。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4265159f89ef",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e837364c2107",
+              "_type": "span",
+              "marks": [],
+              "text": "なぜ第3波を狙うべきなのか？💡"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "25996a403db5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "0e0db4c1066d",
+              "_type": "span",
+              "marks": [],
+              "text": "エリオット波動理論の基礎"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "440d1e53cc7b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "89f1b2b536bd",
+              "_type": "span",
+              "marks": [],
+              "text": "エリオット��動理論とは、市場の価格変動が「5つの推進波＋3つの修正波」からなる8波のサイクルを形成するという考え方です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8a49ce42d134",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "0236024f31ea",
+              "_type": "span",
+              "marks": [],
+              "text": "推進波（上昇トレンド時）の特徴"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "62edbfa10a4f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "451f145d8698",
+              "_type": "span",
+              "marks": [],
+              "text": "第1波： トレンドの始まり。市場参加者がまだ気付いていないため短い"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8db907fa0417",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "bcead0725397",
+              "_type": "span",
+              "marks": [],
+              "text": "第2波： 第1波への一時的な反動。初心者がトレンド終了と誤解しやすい"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ac1a6dbfd1dc",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3d90db0fc444",
+              "_type": "span",
+              "marks": [],
+              "text": "第3波： 最重要！最も強力な波 市場参加者が一斉に追随するため最長・最強"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "52782a0c690e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "60bce24af00f",
+              "_type": "span",
+              "marks": [],
+              "text": "第4波： 第3波への小規模な反動"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c34bd31108e8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f3be7aaaad4c",
+              "_type": "span",
+              "marks": [],
+              "text": "第5波： トレンドの最終波。第1波程度の規模だが第3波ほどの勢いはなし"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c933d667f18f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9a458cc286e9",
+              "_type": "span",
+              "marks": [],
+              "text": "修正波（下降調整）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c2d9c8d36334",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7335e360773a",
+              "_type": "span",
+              "marks": [],
+              "text": "A波、B波、C波の3つで構成"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "0814c9f2eedd",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "b722038d1b6e",
+              "_type": "span",
+              "marks": [],
+              "text": "なぜ多くのトレーダーが第3波を逃すのか💡"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "e2c20034cc00",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "65faadd2e112",
+              "_type": "span",
+              "marks": [],
+              "text": "理由は明確です。教科書通りの波形が実際のチャートに現れることは稀で、どこからが第3波なのかを正確に判断するスキルが不足しているからです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b1caa51e2547",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4cb2c54f995c",
+              "_type": "span",
+              "marks": [],
+              "text": "つまり、理論は知っていても実践で使えないの���現実なのです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "650f2224653b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4f6bc4eed1a0",
+              "_type": "span",
+              "marks": [],
+              "text": "第3波を捉える実践テクニック📈"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "17af87b7297e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "18b38577db00",
+              "_type": "span",
+              "marks": [],
+              "text": "1. 第2波の正確な見極めが全て"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "a806a4b36e41",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7716831ea09c",
+              "_type": "span",
+              "marks": [],
+              "text": "第3波を狙うには、その直前の「第2波」を正確に特定することが最重要です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2422da3e91a0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "15e0b04c3554",
+              "_type": "span",
+              "marks": [],
+              "text": "ポイント1：「大きな押し戻り」を待つ"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b0dc5b62b6d2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9472e02ac1ff",
+              "_type": "span",
+              "marks": [],
+              "text": "多くの初心者は小さな押し目で「第2波だ！」と判断してエントリーし、大きな波に飲み込まれて損切りになります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "6e24cc6cb8ce",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "fa344af7c0e6",
+              "_type": "span",
+              "marks": [],
+              "text": "待つべきは重要な水平線まで価格が引きつけられる明確で深い押し戻りです。多くの市場参加者が意識するラインでの反転は、より強力なトレンド継続のシグナルとなります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a81c468850ab",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "596b7efae161",
+              "_type": "span",
+              "marks": [],
+              "text": "ポイント2：「綺麗な押し戻り」パターンの認識"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "9e2bc3ac6a16",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e0a434ee4445",
+              "_type": "span",
+              "marks": [],
+              "text": "第2波自体が3つの小さな修正波（a-b-c）で構成されているパターンを見つけましょう。この「綺麗な押し戻り」が確認できれば、その後の第3波の勢いが強い可能性が高まります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b3a0e41864b4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c2f09ceebe20",
+              "_type": "span",
+              "marks": [],
+              "text": "2. 第3波と第5波を区別する判断法"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "fd49b27f66bb",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "53c7eb89da9d",
+              "_type": "span",
+              "marks": [],
+              "text": "第3波を狙ったつもりが実は勢いの弱い第5波だった...という失敗を避けるための方法です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "35138a8024e7",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a894ac35bd13",
+              "_type": "span",
+              "marks": [],
+              "text": "環境認識の重要性"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "62b6467df471",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3f7f71a77ca0",
+              "_type": "span",
+              "marks": [],
+              "text": "上位足（日足、週足）で重要な水平線やチャネルラインが現在の価格帯に存在するかチェックしましょう。強力な���抗帯に差し掛かっている場合は、第5波の終焉を迎えている可能性が高いです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3c8f67cce22b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "123e91115346",
+              "_type": "span",
+              "marks": [],
+              "text": "プライスアクションでの撤退判断"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cc28157937a1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5ffde97db2e8",
+              "_type": "span",
+              "marks": [],
+              "text": "エントリー後の価格が以下の兆候を示したら、たとえ途中でも決済を検討しましょう："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "80d29c7a9431",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "42ed61bcfe15",
+              "_type": "span",
+              "marks": [],
+              "text": "もみ合い状態"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "0640f96a72a8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "70164e2619f5",
+              "_type": "span",
+              "marks": [],
+              "text": "ヒゲが多く出現"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d03ede58368d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d9c971456162",
+              "_type": "span",
+              "marks": [],
+              "text": "ネックラインでの強い反発"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "f5f2d2000ebd",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "df847e82772a",
+              "_type": "span",
+              "marks": [],
+              "text": "「もっと伸びるかも」という期待は感情的なバイアスです。不確実な相場から撤退し、資金を温存することが長期的な成功につながります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3b8b66e278ff",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5e72bd631132",
+              "_type": "span",
+              "marks": [],
+              "text": "3. 第1波の長さを利用した確認テクニック"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "02e8f321768d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "2187fbed5755",
+              "_type": "span",
+              "marks": [],
+              "text": "「第3波は第1波より長くなる」というエリオット波動の基本性質を活用します。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d2bf081c360f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "fd57b10751fc",
+              "_type": "span",
+              "marks": [],
+              "text": "第1波の長さを計測し、その分を第2波の起点から延長してみてください。第3波が既に第1波分以上伸びていれば、トレンドの勢いは強いと判断できます。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7931758b2a82",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c978d909dbd2",
+              "_type": "span",
+              "marks": [],
+              "text": "逆に第3波が第1波と同程度で停滞している場合、第5波の可能性やトレンド弱化の兆候かもしれません。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "19606c52173b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5cbaf7b595a0",
+              "_type": "span",
+              "marks": [],
+              "text": "実践で勝ち続けるための心構え🔥"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "f31019d86a8b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c859561c5b02",
+              "_type": "span",
+              "marks": [],
+              "text": "エリオット波動をマスターすることは、単なるテクニカル分析の習得ではありません。市場の群集心理を論理的に読み解き、自分の感情をコントロールするための思考訓練です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "25846eaee43c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "0f51337ca3f6",
+              "_type": "span",
+              "marks": [],
+              "text": "成功のための4つの要素"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2a1f44dd662c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9495dc0a7761",
+              "_type": "span",
+              "marks": [],
+              "text": "第2波の正確な見極め"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8cebc1370aff",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "454d00f12371",
+              "_type": "span",
+              "marks": [],
+              "text": "環境認識による総合判断"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "5a452cce9095",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5f1012af2021",
+              "_type": "span",
+              "marks": [],
+              "text": "資金を守る撤退戦略"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d273a2086054",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ea8cc20206e5",
+              "_type": "span",
+              "marks": [],
+              "text": "第1波の長さ���利用した補助分析"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7d6d4c4039e6",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "287564adae00",
+              "_type": "span",
+              "marks": [],
+              "text": "これらを組み合わせることで、市場で生き残り、継続的に利益を積み上げることが可能になります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3e9b39df09c4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5787efd554ae",
+              "_type": "span",
+              "marks": [],
+              "text": "まとめ📝"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "4438e7e0cfb3",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5e8825ab588d",
+              "_type": "span",
+              "marks": [],
+              "text": "理論だけでは実際のトレードで勝つことはできません。今回ご紹介した実践的なテクニックを日々のトレードに取り入れて、少しずつスキルアップしていってください。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "088d1e71619e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ea97d00a2fea",
+              "_type": "span",
+              "marks": [],
+              "text": "重要なのは完璧を求めすぎないことです。不確実な相場で確実なのは「資金管理」だけです。小さな利益でも確実に積み重ねていく姿勢が、長期的な成功への道筋となります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "dde713ca9d97",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "83e5461cdebf",
+              "_type": "span",
+              "marks": [],
+              "text": "皆さんのトレードが少し��も改善されることを願っています！"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ed9ac6304479",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d2b94eeab18c",
+              "_type": "span",
+              "marks": [],
+              "text": "過去のデータは未来の確率を導くための設計図に過ぎません。その設計図をどう読み解き、冷静に実行するかが、継続的に利益を上げるための鍵となります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        }
+      ],
+      "categories": null,
+      "mainImage": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-6e91ef65a1cd514e12f4167577e6e12c301adfde-1024x1024-jpg",
+          "_type": "reference"
+        }
+      },
+      "publishedAt": null,
+      "slug": {
+        "_type": "slug",
+        "current": "eriot-wave"
+      },
+      "title": "《FX》エリオット波動の実践応用"
+    },
+    {
+      "_id": "256e2b9f-b538-4a42-92ce-d8b54b308386",
+      "author": {
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_ref": "image-6e91ef65a1cd514e12f4167577e6e12c301adfde-1024x1024-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Elice-FX01"
+      },
+      "body": [
+        {
+          "_key": "476ee03fd363",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "eb6e2ebe988b",
+              "_type": "span",
+              "marks": [],
+              "text": "FX勝率を劇的に上げる！\nエントリー前の5つの視点👀"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "6f91b512680e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f6db5c58cfa1",
+              "_type": "span",
+              "marks": [],
+              "text": "FXで勝つために最も重要なのは「どこでエントリーするか」の判断です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e4fac72f887b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "05d36856d548",
+              "_type": "span",
+              "marks": [],
+              "text": "良いチャンスを見つけても、エントリーのタイミングや方法を間違えると思わぬ損失につながることがあります。そこで今回は、プロトレーダーが実践している"
+            },
+            {
+              "_key": "db0c1a239b09",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "エントリー前の最終チェックリスト"
+            },
+            {
+              "_key": "eea5b9de9a66",
+              "_type": "span",
+              "marks": [],
+              "text": "をご紹介します。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3d05502ecdf1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "029da62821fc",
+              "_type": "span",
+              "marks": [],
+              "text": "この5つの項目を確認するだけで、勝率が格段に向上し、無駄な負けを大幅に減らすことができるはずです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "0c8143c32ce1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "566dd671269b",
+              "_type": "span",
+              "marks": [],
+              "text": "📋 エントリー前の5つの視点👀"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "8706e04f84f7",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5583a8bfc2c7",
+              "_type": "span",
+              "marks": [],
+              "text": "1. ⏰ 時間足の確定を待っているか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "bb57d852a4ab",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7a834fba8cc1",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "チェックポイント：見ている時間足が確定する��で待てていますか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "f0528d92d53b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d43dc3af5b1a",
+              "_type": "span",
+              "marks": [],
+              "text": "多くのトレーダーが見落としがちですが、時間足の確定を待つことは非常に重要です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7c14ff27a331",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a64864c19852",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "具体例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d0492e6c4423",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a4d32ef47bd3",
+              "_type": "span",
+              "marks": [],
+              "text": "4時間足でトレード判断をするなら、4時間足が確定するまで待つ"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "090a2382a9fd",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "960520a2d9b4",
+              "_type": "span",
+              "marks": [],
+              "text": "1時間足なら、毎時00分の確定を待つ"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2a855c7aca1c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "26e5614de9cc",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "なぜ重要なのか？"
+            },
+            {
+              "_key": "9f3cd5fab8e2",
+              "_type": "span",
+              "marks": [],
+              "text": " 時間足が確定しないと正確な判断ができません。途中では大きく上昇しているように見えても、確定時には陰線になっていることがよくあります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8e4b7738930b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "245f92ed6a44",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "実際のトレード例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cd2f2a2caf44",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "644831e44337",
+              "_type": "span",
+              "marks": [],
+              "text": "❌ 悪い例：1時間足で上昇中に見えたので、30分時点でエントリー\n→ 実際は1時間足確定時に陰線で下落\n✅ 良い例：1時間足の確定（毎時00分）を待ってからエントリー\n→ 確定足で明確な方向性を確認してから判断"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "85f243e62c56",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9fcd87df697a",
+              "_type": "span",
+              "marks": [],
+              "text": "2. 😤 感情に流されていないか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "a0f1f19ac99c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "0b4ce97fb1a2",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "チェックポイント：冷静な判断ができていますか？感情で都合の良い根拠を作り上げていませんか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "fc7ceb25a09a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1cb8386c3ba4",
+              "_type": "span",
+              "marks": [],
+              "text": "感情的なトレードは、FXで負ける最大の原因の一つです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7c9f9708558d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4b9212f1a29e",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "感情に流される典型パターン："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c24fbfc89630",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "13cbf42a5179",
+              "_type": "span",
+              "marks": [],
+              "text": "大きな負けの後「取り返したい」"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ef9f7422b85a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8609e3c7339a",
+              "_type": "span",
+              "marks": [],
+              "text": "SNSで話題の通貨ペアを見て「乗り遅れたくない」"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "18e21d7ffb4a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d85d92afa7f0",
+              "_type": "span",
+              "marks": [],
+              "text": "連勝中で「今日は調子が良い」"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cf993d7a6671",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f906a3ae4370",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "実際の失敗例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "fb8f2eef46d5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d7888b7d4cf7",
+              "_type": "span",
+              "marks": [],
+              "text": "昨日ドル円で10万円の損失を出したAさん\n↓\n「今日は絶対に取り返す！」と感情的になる\n↓\n普段なら見送る微妙なチャートパターンでもエントリー\n↓\nさらに5万円の損失"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "79f70f420d6b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e90389c93640",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "対策："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d9b9c263cd2d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "fa90544075fc",
+              "_type": "span",
+              "marks": [],
+              "text": "エントリー前に深呼吸して「なぜこのトレードをするのか？」を言語化"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "54c2d8721695",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3e2c3a60b62d",
+              "_type": "span",
+              "marks": [],
+              "text": "感情的になっている自覚があるときは、その日のトレードを控える"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7797407fa8cf",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7000095ca72f",
+              "_type": "span",
+              "marks": [],
+              "text": "3. 💪 根拠の強弱を確認しているか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "76ce20c0c82b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "bafc1639f08b",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "チェックポイント：そのエントリー根拠は、本当に強いものですか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d0acbbf3dbb5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a0d73aac2c95",
+              "_type": "span",
+              "marks": [],
+              "text": "同じチャートパターンでも、強いものと弱いものがあります。弱い根拠でのエントリーは避けるべきです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "1a0a0fd66c9c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "29eb14329a13",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "具体的な比較例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ba4e3fb1acc8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1a3524956e21",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "弱いダブルボトム："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "02f0b7383517",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9bf55c058eac",
+              "_type": "span",
+              "marks": [],
+              "text": "単純に安値を2回つけただけ"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8fa7092ce6cc",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "63d169937329",
+              "_type": "span",
+              "marks": [],
+              "text": "上位足では下降トレンド継続中"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ea42378928e4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c65fee6cec37",
+              "_type": "span",
+              "marks": [],
+              "text": "出来高（取引量）が少ない"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ab54f7b24c97",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "000f74a45558",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "強いダブルボトム："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "0fa4bce246e9",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "b42cc47cdb73",
+              "_type": "span",
+              "marks": [],
+              "text": "2つの安値がほぼ同じ価格"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "69f22fa3807d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a179a699cde7",
+              "_type": "span",
+              "marks": [],
+              "text": "上位足のサポートライン付近で形成"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "db9b10b5a3f7",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a82baa8b1aaa",
+              "_type": "span",
+              "marks": [],
+              "text": "ネックライン突破時の出来高が多い"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "57b51a17c697",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9623afff4b2d",
+              "_type": "span",
+              "marks": [],
+              "text": "横軸（時間）の調整も十分"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "6c0a0887c026",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5d21d2bc5338",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "実際のトレード判断："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "49d3f76ae9c5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "601eb94cc961",
+              "_type": "span",
+              "marks": [],
+              "text": "弱い根拠の例\n「なんとなくダブルボトムっぽいからロング」 → 勝率30%程度\n強い根拠の例\n「日足サポート＋完璧なダブルボトム＋出来高急増」 → 勝率70%程度"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "fa727bd5c92a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c1b390059fd3",
+              "_type": "span",
+              "marks": [],
+              "text": "4. 📊 期待値がプラスになるか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "0d2dd0ab7a15",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "292fb8f9ad7c",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "チェックポイント：長期的に見てプラスになるトレードですか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "583affa8318d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3de817222ae7",
+              "_type": "span",
+              "marks": [],
+              "text": "1回のトレードで勝つことより、長期的に利益を積み重ねることが重要です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "15ee3910e2b2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "2926e2107592",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "確認すべき3つの要素："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4a8a8c530928",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "68202f2fe9a6",
+              "_type": "span",
+              "marks": [],
+              "text": "① ロット（取引量）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8f2fc9ebb89c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "56c8afcc0cbc",
+              "_type": "span",
+              "marks": [],
+              "text": "例：資金100万円の場合\n- 1回の損切り額：2万円（資金の2%）\n- ドル円1pips=10円なら：200pipsまでの損切り幅でロット設定"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "0512a954d2d1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f4b6c6b6f8e3",
+              "_type": "span",
+              "marks": [],
+              "text": "② リスクリワード（RR）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e8e74917a76e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "af13f2be26c6",
+              "_type": "span",
+              "marks": [],
+              "text": "リスクリワード1:2の場合\n- 損切り：20pips\n- 利確目標：40pips → 勝率が34%以上なら長期的にプラス"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "16543b8b4d6c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4ec6646b37ff",
+              "_type": "span",
+              "marks": [],
+              "text": "③ 勝率"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c804646b18a7",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "993c5346af2f",
+              "_type": "span",
+              "marks": [],
+              "text": "過去のトレード記録から算出\n- 同じようなパターンでの勝率は？\n- 現在の相場環境での勝率は？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ea9314001dfa",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5a6b3c82f6b0",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "実際の計算例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ce91ced71c22",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "879e6ebad1ee",
+              "_type": "span",
+              "marks": [],
+              "text": "トレードA\n- 勝率60%、RR 1:1.5 - 期待値 = 0.6 × 1.5 - 0.4 × 1 = 0.5（プラス）\nトレードB\n- 勝率40%、RR 1:1 - 期待値 = 0.4 × 1 - 0.6 × 1 = -0.2（マイナス）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "eddea8db4f0d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "b1f474f59c29",
+              "_type": "span",
+              "marks": [],
+              "text": "5. 🎯 波形の完成イメージを持っているか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "0ee21be96d90",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8e1382d854e6",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "チェックポイント：エントリー後の値動きを具体的に想像できていますか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b3a4d1edc33c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "20c867755c0a",
+              "_type": "span",
+              "marks": [],
+              "text": "多くのトレーダーが見落とす重要なポイントです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8a50ac77ea6c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "2b232669c485",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "悪いイメージ例："
+            },
+            {
+              "_key": "a89dabfeebe1",
+              "_type": "span",
+              "marks": [],
+              "text": " 「買いエントリーしたら、すぐに急上昇するはず！」"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8d480a540882",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "dace87bdd0dc",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "良いイメージ例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c37f432728e4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c8a64549dc03",
+              "_type": "span",
+              "marks": [],
+              "text": "上昇トレンド中の押し目買いの場合\n1. エントリー後、一旦下落する可能性\n2. サポートライン付近で反発\n3. 横ばいでの調整期間\n4. その後、上��再開 この全体の流れを想像してエントリー"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "92a529da04ad",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c84f4c93756b",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "実際のメリット："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c7c7287515f2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "04cc77ef0a7d",
+              "_type": "span",
+              "marks": [],
+              "text": "一時的な含み損でも冷静でいられる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "094839c0fa0d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "bb858fcc6bf9",
+              "_type": "span",
+              "marks": [],
+              "text": "想定内の値動きなので、途中で投げ売りしない"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4fcd1996f271",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "6b70b42600cb",
+              "_type": "span",
+              "marks": [],
+              "text": "反対ポジションの人の心理も理解できる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "aee22714a97d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1d57f9240dfa",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "具体的な想像方法："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d4349462dbd4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c3dd989791f3",
+              "_type": "span",
+              "marks": [],
+              "text": "「このエントリーで損切りになるとしたら、どんなパターン？」\n「利確まで到達するなら、どんな経路を��る？」\n「途中でどんな抵抗を受けそう？」"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "aac39f6aa8bb",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "98c0a743d01d",
+              "_type": "span",
+              "marks": [],
+              "text": "🎯 実践的な使い方"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "4f6d92b38406",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f732c820d3bf",
+              "_type": "span",
+              "marks": [],
+              "text": "チェックリストの活用法"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "80659b01baec",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7ae260147bb5",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "エントリー前のルーティン："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "fd18257d705d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "b5dace310e9f",
+              "_type": "span",
+              "marks": [],
+              "text": "チャートパターンを発見"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "f3fac897f9b0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7d225d202f8c",
+              "_type": "span",
+              "marks": [],
+              "text": "5つの視点で順番に確認"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "78907b6de57f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8775fb9bc563",
+              "_type": "span",
+              "marks": [],
+              "text": "すべてクリアした場合のみエントリー"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "124072ac90ec",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "6ea50bfb24f1",
+              "_type": "span",
+              "marks": [],
+              "text": "1つでも引っかかる項目があれば見送り"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7ac65bde52c2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "fc58739ce356",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "実際の確認例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7c8e6243a611",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ebfabdce1e63",
+              "_type": "span",
+              "marks": [],
+              "text": "チャンス発見！ダブルボトムでロング狙い\n✅ 1時間足確定まであと5分 → 待つ\n✅ 感情的になっていない → 冷静\n✅ 日足サポート付近の強いパターン → 根拠強い\n✅ RR1:2、勝率65%で期待値プラス → OK\n✅ 横軸調整→上昇のイメージ明確 → OK\n→ 全項目クリア、エントリー実行！"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "bfffb28618e5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "daeb30968fd5",
+              "_type": "span",
+              "marks": [],
+              "text": "よくある失敗パターン"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "ab120d688462",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "91a978d054bc",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "❌ 悪い例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "9ef5d3ea359c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "71e668bc3052",
+              "_type": "span",
+              "marks": [],
+              "text": "チャンス発見→即エントリー"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8ab747a2117a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ba07758cc41c",
+              "_type": "span",
+              "marks": [],
+              "text": "後から「なんでこんなトレードを...」"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "5a48285f2489",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7b8e54083465",
+              "_type": "span",
+              "marks": [],
+              "text": "結果：勝率30%、長期的に損失"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "36c5fa250556",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "11da965f3e65",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "✅ 良い例："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "5256f4c6709e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9e0d2fe8460b",
+              "_type": "span",
+              "marks": [],
+              "text": "チャンス発見→チェックリスト確認"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "03ab8d06ce1d",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7391d033cfe1",
+              "_type": "span",
+              "marks": [],
+              "text": "不安要素があれば見送り"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "6ba075019817",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e69997416973",
+              "_type": "span",
+              "marks": [],
+              "text": "結果：勝率70%、長期的に利益"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e04ffe212450",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7b5e5c8538ed",
+              "_type": "span",
+              "marks": [],
+              "text": "✨ まとめ｜今すぐ実践できること"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "151ccc58269f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "61df2e269e3a",
+              "_type": "span",
+              "marks": [],
+              "text": "この5つのチェックリストを使うことで："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "01dc6fa2468b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a2e53a5a3438",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "得られる効果："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e93483affe6e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "58a61d760073",
+              "_type": "span",
+              "marks": [],
+              "text": "勝率の大幅な向上"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cea18442a042",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "fd9b905c5963",
+              "_type": "span",
+              "marks": [],
+              "text": "感情的なトレードの回避"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "f86ef265f4d0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d6212dd71b35",
+              "_type": "span",
+              "marks": [],
+              "text": "長期的に安定した利益"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "bfb6541cd689",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "dcf17aa887a0",
+              "_type": "span",
+              "marks": [],
+              "text": "トレードに対する自信の向上"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "72e16edb4724",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "236f08ece45e",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "今日から始められること："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "855e6d101d38",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "41c7022be2dc",
+              "_type": "span",
+              "marks": [],
+              "text": "このチェックリストをスマホにメモ"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c437c4500645",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "81d8fc1c7722",
+              "_type": "span",
+              "marks": [],
+              "text": "エントリー前に必ず5項目を確認"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "46f54cf374de",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "2844ce27895d",
+              "_type": "span",
+              "marks": [],
+              "text": "1項目でも不安があれば見送る"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "6ad36a66be87",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "37c1a773d15b",
+              "_type": "span",
+              "marks": [],
+              "text": "トレード記録に各項目の評価も記載"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "bd5b3564b8c5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "51ec05dd1b5f",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "重要な心構え："
+            },
+            {
+              "_key": "fd407e19eb2b",
+              "_type": "span",
+              "marks": [],
+              "text": " エントリーチャンスを逃すことを恐れてはいけません。「良いトレードを厳選する」ことが、長期的な成功につながります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "740929e5089e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1280b9f98e3a",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "FXは確率のゲームです。この5つの視点で、あなたも勝率の高いトレーダーになりましょう！"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e88dd6645c0f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "076c859cfca3",
+              "_type": "span",
+              "marks": [],
+              "text": "実践してみた感想や、他に気をつけているポイントがあれば、ぜひコメントで教えてください。みんなでトレードスキルを向上させていきましょう！"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        }
+      ],
+      "categories": null,
+      "mainImage": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-6e91ef65a1cd514e12f4167577e6e12c301adfde-1024x1024-jpg",
+          "_type": "reference"
+        }
+      },
+      "publishedAt": "2025-08-14T09:29:25.315Z",
+      "slug": {
+        "_type": "slug",
+        "current": "fx-5points"
+      },
+      "title": "FX勝率を劇的に上げる5つのポイント"
+    },
+    {
+      "_id": "26c2a111-bdec-47af-9d5d-46afcf7076e0",
+      "author": {
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_ref": "image-6e91ef65a1cd514e12f4167577e6e12c301adfde-1024x1024-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Elice-FX01"
+      },
+      "body": [
+        {
+          "_key": "dc066aae636c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4aaf14c9e95c",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "トレードスタイル・市場時間・経済指標"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "34dc0edbb31c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "2b03d02e658f",
+              "_type": "span",
+              "marks": [],
+              "text": "FXを始めてみたいけれど、専門用語が多くて難しそう…そんな風に感��ていませんか？"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "08e4c61c728c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "fb3c8fa65fa6",
+              "_type": "span",
+              "marks": [],
+              "text": "確かにFXには独特の言葉がたくさんありますが、基本的な用語を理解するだけで、FXがぐっと身近になります。この記事では、初心者の方が最初に覚えておきたい"
+            },
+            {
+              "_key": "8f8537ea08a4",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "トレードスタイル"
+            },
+            {
+              "_key": "3ddc0117ea89",
+              "_type": "span",
+              "marks": [],
+              "text": "、"
+            },
+            {
+              "_key": "d977f084efc0",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "市場時間"
+            },
+            {
+              "_key": "e6bcb84c7a6f",
+              "_type": "span",
+              "marks": [],
+              "text": "、"
+            },
+            {
+              "_key": "22df0f7aea4d",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "重要な経済指標"
+            },
+            {
+              "_key": "121b55e2e1a5",
+              "_type": "span",
+              "marks": [],
+              "text": "について、分かりやすく解説します。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cc9f4cedf6da",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3757ac6e2777",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a7327d3b4c5e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1c24e89907dc",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b864d4956eb4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c94ab69270ad",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "📈 あなたに合うトレードスタイルはどれ？"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "0dd0dcca8d09",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ba775f02e8ec",
+              "_type": "span",
+              "marks": [],
+              "text": "FXには取引期間によって4つの代表的なスタイルがあります。自分の生活スタイルに合うものから始めてみましょう。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "36f42f3088e0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "a7c695b6d832",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "1. スキャルピング（数秒〜数分）"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "692bf0c582e2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4914b7bd3fdb",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "特徴"
+            },
+            {
+              "_key": "6488caa46db8",
+              "_type": "span",
+              "marks": [],
+              "text": "：短時間で売買を繰り返し、小さな利益を積み重ねる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "bb76e44be3cb",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "cd161b8f49d6",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "メリット"
+            },
+            {
+              "_key": "01903970bf81",
+              "_type": "span",
+              "marks": [],
+              "text": "：相場の急変にすぐ対応できる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "96b715c6fcb9",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8731c7e0d3b8",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "注意点"
+            },
+            {
+              "_key": "9ea39bf19e3a",
+              "_type": "span",
+              "marks": [],
+              "text": "：瞬時の判断力が必要で、上級者向け"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "5787524882dd",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e1e00a1ab75d",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "2. デイトレード（数十分〜1日）"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "c10eefaa76d1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "6e2979527f18",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "特徴"
+            },
+            {
+              "_key": "0e5f3cc07a2e",
+              "_type": "span",
+              "marks": [],
+              "text": "：その日のうちに決済を完了させる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3ddd741a9ddf",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "6736eafc3d6b",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "メリット"
+            },
+            {
+              "_key": "a9702c256fd5",
+              "_type": "span",
+              "marks": [],
+              "text": "：寝ている間の相場変動リスクを回避できる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "55e031ef6515",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "7e830ea3b3ef",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "おすすめ度"
+            },
+            {
+              "_key": "787ccbf8d1a1",
+              "_type": "span",
+              "marks": [],
+              "text": "：★★★（初心者にも取り組みやすい）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "fae93a4479c4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8413e1b8ea31",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "3. スイングトレード（数日〜数週間）"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "9deab3f2a3a5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8fdd22b64a74",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "特徴"
+            },
+            {
+              "_key": "576dd29733da",
+              "_type": "span",
+              "marks": [],
+              "text": "：中長期的なトレンド（方向性）に沿って取引"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "579b97f7473c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "611a20f3c752",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "メリット"
+            },
+            {
+              "_key": "f5cb6244e76f",
+              "_type": "span",
+              "marks": [],
+              "text": "：じっくり相場を分析できる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c635c20695ea",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f6923b94910d",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "おすすめ度"
+            },
+            {
+              "_key": "1fdfe6b558d6",
+              "_type": "span",
+              "marks": [],
+              "text": "：★★★（初心者におすすめ）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "58589aec2c61",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3b4be2426909",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "4. ポジション（長期）トレード（数週間〜1年）"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "13678896c7d0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "848d3eb49d16",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "特徴"
+            },
+            {
+              "_key": "c25559e1796a",
+              "_type": "span",
+              "marks": [],
+              "text": "：長期間保有してスワップポイント（金利差）も狙う"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "fe8a62bd0bfb",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d077ccf2bfbf",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "メリット"
+            },
+            {
+              "_key": "0487e1a64463",
+              "_type": "span",
+              "marks": [],
+              "text": "：経済の大きな流れに乗れる"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "1f9d6f1e42b7",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c499b95f999b",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "注意点"
+            },
+            {
+              "_key": "599f80208dc2",
+              "_type": "span",
+              "marks": [],
+              "text": "：マクロ経済の知識が必要"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2c82de8662fe",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "4e89e0a27f0f",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "bc56447768f8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "20e58785353c",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ee9ee20d0361",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "eb5ff092fffc",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "🌍 FX市場の取引時間を知ろう"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "ba55d85130bb",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d3e58df8d64b",
+              "_type": "span",
+              "marks": [],
+              "text": "FXは24時間取引できますが、活発になる時間帯があります。日本時間（冬時間）での主な市場オープン時間は以下の通りです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2248b818fbe8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "45b20793d232",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "主要市場のオープン時間"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "4dc58c85a5d3",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "79b8b049d895",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "オセアニア時間"
+            },
+            {
+              "_key": "b424ada52c16",
+              "_type": "span",
+              "marks": [],
+              "text": "：朝5時頃（ウェリントン）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "5b9adb6de052",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e9680942fb4d",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "オーストラリア時間"
+            },
+            {
+              "_key": "8c2443cec4de",
+              "_type": "span",
+              "marks": [],
+              "text": "：朝7時頃（シドニー）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "af045889df9c",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "b6292803d5eb",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "東京時間"
+            },
+            {
+              "_key": "759f84280b1f",
+              "_type": "span",
+              "marks": [],
+              "text": "：朝8時頃（東京）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "2b4193252658",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "d1d827fecf6f",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "ロンドン時間"
+            },
+            {
+              "_key": "f53d94e7ea4d",
+              "_type": "span",
+              "marks": [],
+              "text": "：夕方17時頃（ロンドン）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c1ebcc232f39",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "85fbdf10ed9f",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "米国時間"
+            },
+            {
+              "_key": "75ce35bb5cb5",
+              "_type": "span",
+              "marks": [],
+              "text": "：夜22時頃（ニューヨーク）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8e0bef811b00",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1b1a70c47d38",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "特に注意したい時間帯"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "c6eac20f09d9",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "760fce89edea",
+              "_type": "span",
+              "marks": [],
+              "text": "🔸 東京時間の中値（9時55分）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a1c4ef5cc5ff",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "05865734bcbe",
+              "_type": "span",
+              "marks": [],
+              "text": "金融機関が基準レートを決定する時間。特に**五十日（ごとうび）**の9時55分は円安・ドル高になりやすい傾向があります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e793f352c799",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "8c8afb13836f",
+              "_type": "span",
+              "marks": [],
+              "text": "🔸 ロンドンフィキシング（25時頃）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "1dcdff6b4104",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "429bdc5e918a",
+              "_type": "span",
+              "marks": [],
+              "text": "ロンドン市場の基準レート決定時間。世界最大の為替市場での動きなので要注意です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a23844037ac4",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "99d66f9fd48c",
+              "_type": "span",
+              "marks": [],
+              "text": "🔸 ゴールデンタイム（21時〜深夜1時）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "be74ebc00830",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ae3b56a85b74",
+              "_type": "span",
+              "marks": [],
+              "text": "ロンドンとニューヨーク市場が重なる時間帯。最も取引が活発になります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "6a8d2a4ad117",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "232ed81f72b9",
+              "_type": "span",
+              "marks": [],
+              "text": "🔸 米国経済指標発表（22時半以降）"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "125f52238391",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "79031e76525c",
+              "_type": "span",
+              "marks": [],
+              "text": "重要な経済指標が発表される時間。相場が大きく動く可能性があります。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4468c33c1492",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "1a2c39f97b6e",
+              "_type": "span",
+              "marks": [],
+              "text": "※夏時間（3月第2日曜〜11月第1日曜）は1時間繰り上がります"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "41aa997bb8f8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9a40bf01e2c2",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e13787c2f890",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c2df6445a71b",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "26c5f4e5f9b0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "71170543aa09",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "📊 相場を動かす重要な経済指標"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "db83cac0739b",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f1749bfd9a81",
+              "_type": "span",
+              "marks": [],
+              "text": "経済指標の発表は相場に大きな影響を与えます。特にアメリカの指標は要チェックです。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "06f1ec58e1d1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "b2e77592d41f",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "1. 雇用統計（毎月第1金曜日発表）"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "6adcc128f2d3",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "74993f696cba",
+              "_type": "span",
+              "marks": [],
+              "text": "アメリカの雇用状況を示す最重要指標です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c16ba7fa5713",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "5eed2088a19e",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "チェックポイント："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "3584e12d9764",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3ef2a8ac4106",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "非農業部門雇用者数"
+            },
+            {
+              "_key": "ebe81828cf76",
+              "_type": "span",
+              "marks": [],
+              "text": "：雇用の増減"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "7a80cf0be2a9",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9ffb27406363",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "失業率"
+            },
+            {
+              "_key": "09e22a2d92ac",
+              "_type": "span",
+              "marks": [],
+              "text": "：失業者の割合"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a7d787d3ebc3",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9de7f4c8ffc2",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "平均時給"
+            },
+            {
+              "_key": "faf195f70fb5",
+              "_type": "span",
+              "marks": [],
+              "text": "：賃金の動向"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "a6879adf8978",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f01bb4749efa",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "2. 消費者物価指数（CPI）"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "36665b33d799",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "08e04df855a9",
+              "_type": "span",
+              "marks": [],
+              "text": "物価の動きを示すインフレ指標です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "baaa4bbbd4a9",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "2d4a8a820567",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "2つの指数："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "baa147073103",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "18607536c1f6",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "総合指数"
+            },
+            {
+              "_key": "7658283a67b8",
+              "_type": "span",
+              "marks": [],
+              "text": "：全品目の価格変動"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e820bdd88cca",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "499be7dc2098",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "コア指数"
+            },
+            {
+              "_key": "fbf4a3a45c9d",
+              "_type": "span",
+              "marks": [],
+              "text": "：食品・エネルギーを除いた指数（FRBが重視）"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "8a9081f960aa",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "33d87dcd2eb9",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "経済指標を見るコツ"
+            }
+          ],
+          "markDefs": [],
+          "style": "h3"
+        },
+        {
+          "_key": "65a2595437b9",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "0b90b86e3db6",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "予想と結果のギャップ"
+            },
+            {
+              "_key": "d06376c267da",
+              "_type": "span",
+              "marks": [],
+              "text": "を確認する"
+            }
+          ],
+          "level": 1,
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "ed72e89d5d35",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "09c9cdecf70a",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "単月ではなく数ヶ月のトレンド"
+            },
+            {
+              "_key": "5183a6a84143",
+              "_type": "span",
+              "marks": [],
+              "text": "を見る"
+            }
+          ],
+          "level": 1,
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "eca73db6760e",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "f321453e6348",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "コロナ禍前との比較"
+            },
+            {
+              "_key": "513e256bd813",
+              "_type": "span",
+              "marks": [],
+              "text": "も重要"
+            }
+          ],
+          "level": 1,
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "d70a0cad8e8a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "c9c67362df91",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "068b4596e590",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "9f32fe1a6f8d",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "e5e026dcbe2f",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e7c6513c3eeb",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "🎯 まとめ｜FX成功のための第一歩"
+            }
+          ],
+          "markDefs": [],
+          "style": "h2"
+        },
+        {
+          "_key": "68dffa3989ae",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "ef5471225014",
+              "_type": "span",
+              "marks": [],
+              "text": "FXで成功するためには、まず基本用語を理解することが大切です。"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "4eeb599d7445",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "3c64d0448beb",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "今日から実践できること："
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "9187d4e41fb8",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "34ae90b57284",
+              "_type": "span",
+              "marks": [],
+              "text": "自分に合うトレードスタイルを見つける"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "985477e58e8a",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "cdaa40c30c16",
+              "_type": "span",
+              "marks": [],
+              "text": "重要な市場時間を把握する"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "c2afe919f0f5",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "e47b93e7c4ed",
+              "_type": "span",
+              "marks": [],
+              "text": "経済指標カレンダーをチェックする習慣をつける"
+            }
+          ],
+          "level": 1,
+          "listItem": "bullet",
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "248fbb4491ed",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "bb1c006a610c",
+              "_type": "span",
+              "marks": [],
+              "text": "これらの知識を身につけることで、FX取引がより安全で効率的になります。焦らず、一歩ずつ学んでいきましょう！"
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        }
+      ],
+      "categories": null,
+      "mainImage": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-6e91ef65a1cd514e12f4167577e6e12c301adfde-1024x1024-jpg",
+          "_type": "reference"
+        }
+      },
+      "publishedAt": "2025-08-13T14:07:28.752Z",
+      "slug": {
+        "_type": "slug",
+        "current": "fx-beginner-guid"
+      },
+      "title": "FX初心者が知っておきたい基本知識"
+    }
+  ],
+  "syncTags": [
+    "s1:yARdoA",
+    "s1:JTx9iQ"
+  ],
+  "ms": 21
+}

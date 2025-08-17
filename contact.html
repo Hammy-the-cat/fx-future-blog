@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FX Future Archives お問い合わせページ - FX投資・エリオット波動・テクニカル分析に関するご質問・ご相談をお受けします">
+    <meta name="keywords" content="FX, 投資, エリオット波動, テクニカル分析, お問い合わせ, 相談">
+    <meta property="og:title" content="Contact - FX Future Archives">
+    <meta property="og:description" content="FX投資・エリオット波動・テクニカル分析に関するご質問・ご相談をお受けします">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.com/contact.html">
+    <meta property="og:image" content="https://yoursite.com/images/og-image.png">
+    <title>🚀 Contact - FX Future Archives</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 近未来的なアニメーション背景 */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background: 
+                radial-gradient(circle at 20% 20%, #00ffff 0%, transparent 70%),
+                radial-gradient(circle at 80% 80%, #ff00ff 0%, transparent 70%),
+                radial-gradient(circle at 60% 40%, #00ff00 0%, transparent 70%);
+            animation: cyberPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes cyberPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* FXチャート風背景 */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ナビゲーション */
+        .nav-panel {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: left 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(45deg, #16213e, #1a1a2e);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(15, 20, 35, 0.95) 100%);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            margin-bottom: 40px;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            padding: 2px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #0066ff, #00ffff);
+            background-size: 400% 400%;
+            animation: borderGlow 4s ease-in-out infinite;
+            opacity: 0.8;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .content-inner {
+            position: relative;
+            z-index: 1;
+            background: rgba(10, 10, 20, 0.9);
+            border-radius: 13px;
+            padding: 40px;
+            margin: 2px;
+        }
+
+        .page-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.8),
+                0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Orbitron', monospace;
+            color: #00ffff;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+            background: rgba(0, 50, 50, 0.5);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.3s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(0, 255, 255, 0.5);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        .info-title {
+            font-family: 'Orbitron', monospace;
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .info-text {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .info-link {
+            color: #00ff00;
+            text-decoration: none;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .info-link:hover {
+            color: #00ffff;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content-inner {
+                padding: 25px;
+            }
+            
+            .nav-panel {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .content-inner {
+                padding: 20px;
+            }
+
+            .form-input,
+            .form-textarea,
+            .form-select {
+                padding: 12px;
+            }
+
+            .submit-btn {
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <div class="nav-panel">
+            <a href="future-blog.html" class="nav-link">🏠 ホーム</a>
+            <a href="blog-list.html" class="nav-link">📊 記事一覧</a>
+            <a href="contact.html" class="nav-link">📧 お問い合わせ</a>
+        </div>
+
+        <div class="main-content">
+            <div class="content-inner">
+                <h1 class="page-title">🚀 CONTACT TERMINAL</h1>
+                
+                <div class="contact-intro">
+                    <p>FX投資・エリオット波動・テクニカル分析に関するご質問・ご相談をお受けします。</p>
+                    <p>未来のトレーダーたちへ、時空を超えた知識を共有いたします。</p>
+                </div>
+
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">お名前 / NAME *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">メールアドレス / EMAIL *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category" class="form-label">お問い合わせカテゴリー / CATEGORY</label>
+                        <select id="category" name="category" class="form-select">
+                            <option value="">カテゴリーを選択してください</option>
+                            <option value="fx-analysis">FX相場分析について</option>
+                            <option value="elliott-wave">エリオット波動理論について</option>
+                            <option value="entry-technique">エントリー手法について</option>
+                            <option value="risk-management">リスク管理について</option>
+                            <option value="technical">テクニカル分析全般</option>
+                            <option value="collaboration">コラボレーション・執筆依頼</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">メッセージ / MESSAGE *</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="ご質問・ご相談内容を詳しくお書きください..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">⚡ TRANSMIT MESSAGE</button>
+                </form>
+
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h3 class="info-title">EMAIL CONTACT</h3>
+                        <p class="info-text">
+                            <a href="mailto:elice.fx01@future-archives.com" class="info-link">
+                                elice.fx01@future-archives.com
+                            </a><br>
+                            <small>24-48時間以内に返信いたします</small>
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">⏰</div>
+                        <h3 class="info-title">RESPONSE TIME</h3>
+                        <p class="info-text">
+                            平日: 24時間以内<br>
+                            週末: 48時間以内<br>
+                            <small>※緊急時は12時間以内</small>
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🌐</div>
+                        <h3 class="info-title">SOCIAL NETWORK</h3>
+                        <p class="info-text">
+                            <a href="#" class="info-link">Twitter @EliceFX01</a><br>
+                            <a href="#" class="info-link">YouTube Channel</a><br>
+                            <small>最新の相場分析を配信中</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
