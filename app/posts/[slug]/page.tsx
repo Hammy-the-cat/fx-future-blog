@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { notFound } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Head from 'next/head'
 
 // PortableTextの表示コンポーネント
 const portableTextComponents = {
@@ -73,9 +74,19 @@ export default function PostPage({ params }: { params: Promise<{ slug: string }>
             categories: [{ title: 'Economic news' }],
             publishedAt: '2025-01-15',
             body: [
-              { children: [{ text: 'FX市場の最新動向を分析し、2025年の展望について詳しく解説します。' }] },
-              { children: [{ text: '米ドル、ユーロ、円の動向と今後の見通しについて専門的な視点から分析します。' }] },
-              { children: [{ text: '投資家が注目すべきポイントと効果的な取引戦略をご紹介します。' }] }
+              { _type: 'block', style: 'h2', children: [{ text: '2025年FX市場の主要トレンド' }] },
+              { _type: 'block', children: [{ text: '2025年のFX市場は、世界的な金融政策の転換期を迎えています。主要中央銀行の政策金利動向、地政学的リスク、そして技術革新が為替相場に大きな影響を与えています。' }] },
+              { _type: 'block', style: 'h3', children: [{ text: '米ドルの展望' }] },
+              { _type: 'block', children: [{ text: '米連邦準備制度理事会（FRB）の政策転換により、ドル相場は新たな局面を迎えています。インフレ率の安定化と雇用市場の堅調さが、ドル高要因として継続的に作用すると予想されます。' }] },
+              { _type: 'block', style: 'h3', children: [{ text: 'ユーロの動向' }] },
+              { _type: 'block', children: [{ text: 'ユーロ圏経済の回復基調が続く中、欧州中央銀行（ECB）の政策正常化が進むと予想されます。しかし、地政学的リスクや各国の財政状況が、ユーロの上値を抑制する要因となる可能性があります。' }] },
+              { _type: 'block', style: 'h3', children: [{ text: '円安トレンドの持続性' }] },
+              { _type: 'block', children: [{ text: '日本銀行の金融政策と他国との金利差が、円相場の重要な決定要因となっています。構造的な円安要因が残る中、短期的な介入リスクと長期的なファンダメンタルズのバランスが鍵となります。' }] },
+              { _type: 'block', style: 'h2', children: [{ text: '効果的な取引戦略' }] },
+              { _type: 'block', children: [{ text: '2025年のFX取引では、従来のテクニカル分析に加えて、マクロ経済指標とファンダメンタル分析の重要性が増しています。特に以下の戦略が有効です：' }] },
+              { _type: 'block', children: [{ text: '1. 金利差取引（キャリートレード）の見直し\n2. リスクオン・オフの局面転換を捉えた戦略\n3. 中央銀行のコミュニケーション戦略に基づく短期取引\n4. 地政学的イベントを活用したボラティリティ取引' }] },
+              { _type: 'block', style: 'h2', children: [{ text: 'リスク管理の重要性' }] },
+              { _type: 'block', children: [{ text: 'ボラティリティが高まる市場環境では、適切なリスク管理がより一層重要になります。ポジションサイジング、ストップロス設定、そして相関分析を活用したポートフォリオ管理を徹底することが、長期的な成功の鍵となります。' }] }
             ]
           },
           'bitcoin-trading-strategy': {

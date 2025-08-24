@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 'use client'
 
 import Link from 'next/link'
 import { useState } from 'react'
+
+export const metadata: Metadata = {
+  title: "お問い合わせ",
+  description: "FX Future Archivesに関するご質問、ご意見、ご要望はこちらから。運営者情報も掲載しています。通常2-3営業日以内にご返信いたします。",
+  keywords: ["お問い合わせ", "コンタクト", "運営者情報", "質問", "要望", "FX Future Archives"],
+  openGraph: {
+    title: "お問い合わせ | FX Future Archives",
+    description: "FX Future Archivesに関するご質問、ご意見、ご要望はこちらから。",
+    url: "https://future-fx-blog.vercel.app/contact",
+  },
+};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -294,8 +306,46 @@ export default function Contact() {
               </button>
             </form>
 
+            {/* 運営者情報 */}
             <div style={{
               marginTop: '40px',
+              padding: '25px',
+              background: 'rgba(0, 255, 255, 0.1)',
+              border: '1px solid #00ffff',
+              borderRadius: '10px'
+            }}>
+              <h3 style={{
+                fontFamily: 'Orbitron, monospace',
+                color: '#00ffff',
+                marginBottom: '20px',
+                fontSize: '1.2rem',
+                textShadow: '0 0 8px rgba(0, 255, 255, 0.8)',
+                borderBottom: '1px solid #00ffff',
+                paddingBottom: '10px'
+              }}>
+                📞 運営者情報
+              </h3>
+              <div style={{ color: '#e0e0e0', lineHeight: '1.6' }}>
+                <p style={{ marginBottom: '12px' }}>
+                  <strong>サイト名</strong>: FX Future Archives
+                </p>
+                <p style={{ marginBottom: '12px' }}>
+                  <strong>運営者</strong>: Elice-FX01
+                </p>
+                <p style={{ marginBottom: '12px' }}>
+                  <strong>所在地</strong>: 日本国内
+                </p>
+                <p style={{ marginBottom: '12px' }}>
+                  <strong>事業内容</strong>: 金融情報メディアの運営、投資教育コンテンツの提供
+                </p>
+                <p style={{ marginBottom: '12px' }}>
+                  <strong>設立</strong>: 2025年
+                </p>
+              </div>
+            </div>
+
+            <div style={{
+              marginTop: '20px',
               padding: '20px',
               background: 'rgba(255, 255, 0, 0.1)',
               border: '1px solid #ffff00',
@@ -315,6 +365,7 @@ export default function Contact() {
                 <li style={{ marginBottom: '8px' }}>投資に関する個別のアドバイスは提供しておりません</li>
                 <li style={{ marginBottom: '8px' }}>記載内容に不備がある場合、返信が遅れる場合があります</li>
                 <li style={{ marginBottom: '8px' }}>迷惑メールフィルターをご確認ください</li>
+                <li style={{ marginBottom: '8px' }}>営業時間: 平日 9:00-18:00 (JST)</li>
               </ul>
             </div>
 

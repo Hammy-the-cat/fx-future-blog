@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 'use client'
 
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: "利用規約",
+  description: "FX Future Archivesの利用規約。FX・暗号資産取引の高リスク警告、投資免責事項、レバレッジ取引注意事項を含む包括的な利用条件を記載。",
+  keywords: ["利用規約", "投資リスク", "FX取引", "暗号資産", "レバレッジ", "免責事項", "高リスク警告"],
+  openGraph: {
+    title: "利用規約 | FX Future Archives",
+    description: "FX Future Archivesの利用規約。投資リスク警告、免責事項を含む利用条件。",
+    url: "https://future-fx-blog.vercel.app/terms",
+  },
+};
 
 export default function TermsOfService() {
   return (
@@ -148,18 +160,68 @@ export default function TermsOfService() {
                 marginTop: '30px',
                 textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
               }}>
-                5. 免責事項
+                5. 投資リスクに関する重要な警告
+              </h2>
+              <div style={{
+                background: 'rgba(255, 0, 0, 0.1)',
+                border: '2px solid #ff0000',
+                borderRadius: '10px',
+                padding: '20px',
+                marginBottom: '30px'
+              }}>
+                <h3 style={{
+                  fontSize: '1.2rem',
+                  fontFamily: 'Orbitron, monospace',
+                  color: '#ff0000',
+                  marginBottom: '15px',
+                  textShadow: '0 0 8px rgba(255, 0, 0, 0.8)'
+                }}>
+                  ⚠️ 高リスク投資に関する警告
+                </h3>
+                <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                  <li style={{ marginBottom: '10px' }}><strong>FX取引は非常に高いリスクを伴います。</strong>レバレッジ効果により、投資元本を上回る損失が発生する可能性があります。</li>
+                  <li style={{ marginBottom: '10px' }}><strong>暗号資産取引は極めてボラティリティが高く、</strong>価格が急激に変動する可能性があります。</li>
+                  <li style={{ marginBottom: '10px' }}><strong>過去の実績は将来の結果を保証するものではありません。</strong></li>
+                  <li style={{ marginBottom: '10px' }}><strong>投資は必ずご自身の判断と責任で行ってください。</strong></li>
+                  <li style={{ marginBottom: '10px' }}><strong>損失に耐えうる資金のみで取引を行ってください。</strong></li>
+                </ul>
+              </div>
+
+              <h2 style={{
+                fontSize: '1.5rem',
+                fontFamily: 'Orbitron, monospace',
+                color: '#00ffff',
+                marginBottom: '20px',
+                marginTop: '30px',
+                textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
+              }}>
+                6. 免責事項
               </h2>
               <p style={{ marginBottom: '20px' }}>
                 当サイトは以下について一切の責任を負いません：
               </p>
               <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
                 <li style={{ marginBottom: '10px' }}>当サイトの情報に基づく投資判断による損失</li>
+                <li style={{ marginBottom: '10px' }}>FX取引、暗号資産取引により生じた損失</li>
+                <li style={{ marginBottom: '10px' }}>レバレッジ取引による元本を超える損失</li>
                 <li style={{ marginBottom: '10px' }}>当サイトの情報の正確性、完全性、有用性</li>
+                <li style={{ marginBottom: '10px' }}>市場の急激な変動による損害</li>
                 <li style={{ marginBottom: '10px' }}>当サイトのサービス中断または停止による損害</li>
                 <li style={{ marginBottom: '10px' }}>第三者によるコンテンツの内容</li>
                 <li style={{ marginBottom: '10px' }}>技術的障害による損害</li>
               </ul>
+
+              <p style={{ 
+                marginBottom: '20px',
+                fontWeight: 'bold',
+                color: '#ffff00',
+                background: 'rgba(255, 255, 0, 0.1)',
+                padding: '15px',
+                borderRadius: '8px',
+                border: '1px solid #ffff00'
+              }}>
+                当サイトの情報は教育・情報提供のみを目的とし、投資助言や金融商品の売買推奨を意図するものではありません。
+              </p>
 
               <h2 style={{
                 fontSize: '1.5rem',

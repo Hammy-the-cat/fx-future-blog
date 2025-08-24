@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 'use client'
 
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description: "FX Future Archivesのプライバシーポリシー。Google AdSense対応、GDPR準拠の個人情報保護方針、Cookie使用、投資リスク警告を詳細に記載。",
+  keywords: ["プライバシーポリシー", "個人情報保護", "GDPR", "Google AdSense", "Cookie", "投資リスク"],
+  openGraph: {
+    title: "プライバシーポリシー | FX Future Archives",
+    description: "FX Future Archivesのプライバシーポリシー。個人情報保護、Cookie使用について。",
+    url: "https://future-fx-blog.vercel.app/privacy",
+  },
+};
 
 export default function PrivacyPolicy() {
   return (
@@ -134,18 +146,117 @@ export default function PrivacyPolicy() {
                 marginTop: '30px',
                 textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
               }}>
-                4. Google AdSenseについて
+                4. 広告配信について（Google AdSense）
               </h2>
               <p style={{ marginBottom: '20px' }}>
-                当サイトでは、第三者配信の広告サービス「Google AdSense」を利用しています。Google AdSenseは、Cookieを使用してユーザーの興味に応じた広告を配信します。
+                当サイトでは、第三者配信の広告サービス「Google AdSense」を利用して広告を表示しています。
               </p>
+              
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontFamily: 'Orbitron, monospace',
+                color: '#ff00ff',
+                marginBottom: '15px',
+                marginTop: '25px',
+                textShadow: '0 0 8px rgba(255, 0, 255, 0.8)'
+              }}>
+                4.1 Cookieの使用
+              </h3>
               <p style={{ marginBottom: '20px' }}>
-                Cookieを無効にする方法や、Google AdSenseに関する詳細は、
-                <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'underline' }}>
-                  Googleの広告およびプライバシーに関するポリシー
-                </a>
-                をご確認ください。
+                Google AdSenseは、以下の目的でCookieや類似の技術を使用します：
               </p>
+              <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '10px' }}>ユーザーの興味や関心に基づいた広告の表示</li>
+                <li style={{ marginBottom: '10px' }}>広告の効果測定とレポート作成</li>
+                <li style={{ marginBottom: '10px' }}>不正行為の防止とセキュリティの向上</li>
+                <li style={{ marginBottom: '10px' }}>広告配信システムの最適化</li>
+              </ul>
+
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontFamily: 'Orbitron, monospace',
+                color: '#ff00ff',
+                marginBottom: '15px',
+                marginTop: '25px',
+                textShadow: '0 0 8px rgba(255, 0, 255, 0.8)'
+              }}>
+                4.2 個人情報の取り扱い
+              </h3>
+              <p style={{ marginBottom: '20px' }}>
+                Google AdSenseによる広告配信では、以下の情報が収集される可能性があります：
+              </p>
+              <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '10px' }}>IPアドレス（位置情報の推定に使用）</li>
+                <li style={{ marginBottom: '10px' }}>ブラウザの種類とバージョン</li>
+                <li style={{ marginBottom: '10px' }}>アクセスした日時</li>
+                <li style={{ marginBottom: '10px' }}>サイト内での行動履歴</li>
+                <li style={{ marginBottom: '10px' }}>デバイス情報（画面サイズ、OS等）</li>
+              </ul>
+
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontFamily: 'Orbitron, monospace',
+                color: '#ff00ff',
+                marginBottom: '15px',
+                marginTop: '25px',
+                textShadow: '0 0 8px rgba(255, 0, 255, 0.8)'
+              }}>
+                4.3 広告のパーソナライゼーション
+              </h3>
+              <p style={{ marginBottom: '20px' }}>
+                Googleは、ユーザーの興味・関心に基づいたパーソナライズ広告を表示します。この機能は以下の方法で管理できます：
+              </p>
+              <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '10px' }}>
+                  <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'underline' }}>
+                    Google広告設定
+                  </a>
+                  でパーソナライズ広告の無効化
+                </li>
+                <li style={{ marginBottom: '10px' }}>
+                  <a href="https://www.google.com/settings/ads/anonymous" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'underline' }}>
+                    Google Analytics オプトアウト アドオン
+                  </a>
+                  の使用
+                </li>
+                <li style={{ marginBottom: '10px' }}>ブラウザのCookie設定での無効化</li>
+              </ul>
+
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontFamily: 'Orbitron, monospace',
+                color: '#ff00ff',
+                marginBottom: '15px',
+                marginTop: '25px',
+                textShadow: '0 0 8px rgba(255, 0, 255, 0.8)'
+              }}>
+                4.4 GDPR対応
+              </h3>
+              <p style={{ marginBottom: '20px' }}>
+                EU一般データ保護規則（GDPR）に基づき、EUユーザーに対しては以下の権利を保障します：
+              </p>
+              <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '10px' }}>個人データの処理に関する同意の取得</li>
+                <li style={{ marginBottom: '10px' }}>個人データへのアクセス権</li>
+                <li style={{ marginBottom: '10px' }}>個人データの訂正・削除権</li>
+                <li style={{ marginBottom: '10px' }}>データポータビリティの権利</li>
+              </ul>
+
+              <p style={{ marginBottom: '20px' }}>
+                Google AdSenseおよびGoogleのプライバシーポリシーについては、以下をご参照ください：
+              </p>
+              <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '10px' }}>
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'underline' }}>
+                    Googleプライバシーポリシー
+                  </a>
+                </li>
+                <li style={{ marginBottom: '10px' }}>
+                  <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'underline' }}>
+                    Google広告に関するポリシー
+                  </a>
+                </li>
+              </ul>
 
               <h2 style={{
                 fontSize: '1.5rem',
@@ -211,7 +322,27 @@ export default function PrivacyPolicy() {
                 marginTop: '30px',
                 textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
               }}>
-                9. お問い合わせ
+                9. 金融取引に関する免責事項
+              </h2>
+              <p style={{ marginBottom: '20px' }}>
+                当サイトで提供される情報は、教育および情報提供のみを目的としており、投資助言や金融アドバイスを構成するものではありません。
+              </p>
+              <ul style={{ marginBottom: '20px', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '10px' }}>FXや暗号通貨取引には高いリスクが伴います</li>
+                <li style={{ marginBottom: '10px' }}>過去の実績は将来の結果を保証するものではありません</li>
+                <li style={{ marginBottom: '10px' }}>投資判断は必ずご自身の責任で行ってください</li>
+                <li style={{ marginBottom: '10px' }}>損失に対する責任は負いかねます</li>
+              </ul>
+
+              <h2 style={{
+                fontSize: '1.5rem',
+                fontFamily: 'Orbitron, monospace',
+                color: '#00ffff',
+                marginBottom: '20px',
+                marginTop: '30px',
+                textShadow: '0 0 10px rgba(0, 255, 255, 0.8)'
+              }}>
+                10. お問い合わせ
               </h2>
               <p style={{ marginBottom: '20px' }}>
                 このプライバシーポリシーに関するご質問やご不明な点がございましたら、お問い合わせページよりご連絡ください。

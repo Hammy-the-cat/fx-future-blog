@@ -1,6 +1,16 @@
-'use client'
-
+import type { Metadata } from "next";
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: "会社概要・運営者情報",
+  description: "FX Future Archivesの運営方針、サイトの特徴、運営者情報について。金融市場の未来を見据えた質の高い情報提供を使命とし、投資家やトレーダーの適切な判断をサポートします。",
+  keywords: ["会社概要", "運営者情報", "FX Future Archives", "金融教育", "投資情報", "運営方針"],
+  openGraph: {
+    title: "会社概要・運営者情報 | FX Future Archives",
+    description: "FX Future Archivesの運営方針、サイトの特徴、運営者情報について。",
+    url: "https://future-fx-blog.vercel.app/about",
+  },
+};
 
 export default function AboutUs() {
   return (
@@ -261,13 +271,28 @@ export default function AboutUs() {
                     <strong>サイト名</strong>: FX Future Archives
                   </p>
                   <p style={{ marginBottom: '15px' }}>
+                    <strong>運営者</strong>: Elice-FX01
+                  </p>
+                  <p style={{ marginBottom: '15px' }}>
                     <strong>運営開始</strong>: 2025年
+                  </p>
+                  <p style={{ marginBottom: '15px' }}>
+                    <strong>所在地</strong>: 日本国内
+                  </p>
+                  <p style={{ marginBottom: '15px' }}>
+                    <strong>設立目的</strong>: 金融教育コンテンツの提供、投資情報の啓蒙
                   </p>
                   <p style={{ marginBottom: '15px' }}>
                     <strong>技術スタック</strong>: Next.js 15, Sanity CMS, Vercel
                   </p>
                   <p style={{ marginBottom: '15px' }}>
                     <strong>更新頻度</strong>: 週2-3回の新着記事公開
+                  </p>
+                  <p style={{ marginBottom: '15px' }}>
+                    <strong>プライバシーポリシー</strong>: <Link href="/privacy" style={{ color: '#00ffff', textDecoration: 'underline' }}>プライバシーポリシー</Link>
+                  </p>
+                  <p style={{ marginBottom: '15px' }}>
+                    <strong>利用規約</strong>: <Link href="/terms" style={{ color: '#00ffff', textDecoration: 'underline' }}>利用規約</Link>
                   </p>
                   <p style={{ marginBottom: '15px' }}>
                     <strong>お問い合わせ</strong>: <Link href="/contact" style={{ color: '#00ffff', textDecoration: 'underline' }}>コンタクトページ</Link>よりご連絡ください
